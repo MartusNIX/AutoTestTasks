@@ -1,14 +1,19 @@
-﻿/*using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AutoTestTasks
+namespace AutoTestSpec.Drivers
 {
-    internal class BrowserDriver : IDisposable
+    public class BrowserDrivers : IDisposable
     {
         private readonly Lazy<IWebDriver> _currentWebDriverLazy;
         private bool _isDisposed;
 
-        public BrowserDriver()
+        public BrowserDrivers()
         {
             _currentWebDriverLazy = new Lazy<IWebDriver>(CreateWebDriver);
         }
@@ -23,20 +28,19 @@ namespace AutoTestTasks
             return chromeDriver;
         }
 
-            public void Dispose()
+        public void Dispose()
+        {
+            if (_isDisposed)
             {
-                if (_isDisposed)
-                {
-                    return;
-                }
-
-                if (_currentWebDriverLazy.IsValueCreated)
-                {
-                    Current.Quit();
-                }
-
-                _isDisposed = true;
+                return;
             }
+
+            if (_currentWebDriverLazy.IsValueCreated)
+            {
+                Current.Quit();
+            }
+
+            _isDisposed = true;
+        }
     }
 }
-*/
