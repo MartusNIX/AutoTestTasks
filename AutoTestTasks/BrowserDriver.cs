@@ -37,6 +37,5 @@ namespace AutoTestTasks
 
                 _isDisposed = true;
             }
-        
     }
 }
