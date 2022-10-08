@@ -1,15 +1,19 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Configuration;
+using System.Xml;
 
-namespace AutoTestSpec.Drivers
+namespace AutoTestSpec.Hooks
 {
     public class BrowserDrivers : IDisposable
     {
+        private readonly BrowserDriverFactory browserDriverFactory;
         private readonly Lazy<IWebDriver> _currentWebDriverLazy;
         private bool _isDisposed;
 
         public BrowserDrivers()
         {
+            browserDriverFactory = new BrowserDriverFactory();
             _currentWebDriverLazy = new Lazy<IWebDriver>(CreateWebDriver);
         }
 
@@ -17,10 +21,8 @@ namespace AutoTestSpec.Drivers
 
         private IWebDriver CreateWebDriver()
         {
-            var chromeDriverService = ChromeDriverService.CreateDefaultService();
-            var chromeOptions = new ChromeOptions();
-            var chromeDriver = new ChromeDriver(chromeDriverService, chromeOptions);
-            return chromeDriver;
+            string browserId = "CHROME";//ConfigurationManager.AppSettings["ChromeBrowser"];
+            return browserDriverFactory.GetWebDriver(browserId); ;
         }
 
         public void Dispose()
@@ -29,7 +31,7 @@ namespace AutoTestSpec.Drivers
             {
                 return;
             }
-            
+
             if (_currentWebDriverLazy.IsValueCreated)
             {
                 Current.Quit();

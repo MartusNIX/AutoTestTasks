@@ -1,6 +1,6 @@
 using AutoTestTasks.Pages;
-using AutoTestSpec.Drivers;
 using NUnit.Framework;
+using AutoTestSpec.Hooks;
 
 namespace AutoTestSpec.StepDefinitions
 {
