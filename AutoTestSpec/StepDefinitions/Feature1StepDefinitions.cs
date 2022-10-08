@@ -10,15 +10,21 @@ namespace AutoTestSpec.StepDefinitions
     public class Feature1StepDefinitions
     {
         private readonly Homepaje _homepaje;
+        private readonly ResultPage _resultPage;
+
         public Feature1StepDefinitions(BrowserDrivers browserDriver)
         {
             _homepaje = new Homepaje(browserDriver.Current);
+            _resultPage = new ResultPage(browserDriver.Current);
         }
 
         [Given(@"The browser is opened on the main page")]
         public void GivenTheBrowserIsOpenedOnTheMainPage()
         {
-            //проверить что открітая страница =наша страница
+            var expectedTitle = "My Store";
+            var actualTitle = _homepaje.pageTitle;
+            Assert.AreEqual(expectedTitle, actualTitle);
+
         }
 
         [Given(@"The word is inserted in search field")]
@@ -36,8 +42,8 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"The user see the same words in search field and the search header")]
         public void ThenTheUserSeeTheSameWordsInSearchFieldAndTheSearchHeader()
         {
-            var insertedWord = resultPage.GetInsertedWord();
-            var displayedWordInHeader = resultPage.GetDisplayedWord();
+            var insertedWord = _resultPage.GetInsertedWord();
+            var displayedWordInHeader = _resultPage.GetDisplayedWord();
             Assert.AreEqual(insertedWord, displayedWordInHeader);
         }
     }
