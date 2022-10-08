@@ -29,7 +29,7 @@ namespace AutoTestSpec.Drivers
             {
                 return;
             }
-
+            
             if (_currentWebDriverLazy.IsValueCreated)
             {
                 Current.Quit();

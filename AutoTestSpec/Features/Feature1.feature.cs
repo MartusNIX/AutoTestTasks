@@ -76,11 +76,20 @@ namespace AutoTestSpec.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("1. Comparing the searched word with the word that is displayed")]
         [NUnit.Framework.CategoryAttribute("scenario1")]
-        public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayed()
+        [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
+        [NUnit.Framework.TestCaseAttribute("sleeve", "SLEEVE", null)]
+        public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayed(string enteredWord, string expectedHederWord, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "scenario1"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Entered word", enteredWord);
+            argumentsOfScenario.Add("Expected heder word", expectedHederWord);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
@@ -96,7 +105,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("The browser is opened on the main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.Given("The word is inserted in search field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("The word is inserted in search field {0}", enteredWord), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
  testRunner.When("The user clicks on the magnifier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

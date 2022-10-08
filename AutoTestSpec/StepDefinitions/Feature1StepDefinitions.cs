@@ -25,10 +25,10 @@ namespace AutoTestSpec.StepDefinitions
 
         }
 
-        [Given(@"The word is inserted in search field")]
-        public void GivenTheWordIsInsertedInSearchField()
-        {
-            _homePage.InsertWordInSearchfield("Summer");
+        [Given(@"The word is inserted in search field (.*)")]
+        public void GivenTheWordIsInsertedInSearchField(string fieldValue)
+        {;
+            _homePage.InsertWordInSearchfield(fieldValue);
         }
 
         [When(@"The user clicks on the magnifier")]
