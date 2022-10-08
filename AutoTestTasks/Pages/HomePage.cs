@@ -2,12 +2,12 @@
 
 namespace AutoTestTasks.Pages
 {
-    public class Homepaje
+    public class HomePage
     {
         private const string AutopracticeUrl = "http://automationpractice.com/index.php";
         private readonly IWebDriver driver;
         public const int DefaultWaitInSeconds = 5;
-        public Homepaje(IWebDriver webDriver)
+        public HomePage(IWebDriver webDriver)
         {
             driver = webDriver;
             driver.Navigate().GoToUrl(AutopracticeUrl);

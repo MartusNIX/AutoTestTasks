@@ -1,5 +1,3 @@
-using System;
-using TechTalk.SpecFlow;
 using AutoTestTasks.Pages;
 using AutoTestSpec.Drivers;
 using NUnit.Framework;
@@ -9,12 +7,12 @@ namespace AutoTestSpec.StepDefinitions
     [Binding]
     public class Feature1StepDefinitions
     {
-        private readonly Homepaje _homepaje;
+        private readonly HomePage _homePage;
         private readonly ResultPage _resultPage;
 
         public Feature1StepDefinitions(BrowserDrivers browserDriver)
         {
-            _homepaje = new Homepaje(browserDriver.Current);
+            _homePage = new HomePage(browserDriver.Current);
             _resultPage = new ResultPage(browserDriver.Current);
         }
 
@@ -22,7 +20,7 @@ namespace AutoTestSpec.StepDefinitions
         public void GivenTheBrowserIsOpenedOnTheMainPage()
         {
             var expectedTitle = "My Store";
-            var actualTitle = _homepaje.pageTitle;
+            var actualTitle = _homePage.pageTitle;
             Assert.AreEqual(expectedTitle, actualTitle);
 
         }
@@ -30,13 +28,13 @@ namespace AutoTestSpec.StepDefinitions
         [Given(@"The word is inserted in search field")]
         public void GivenTheWordIsInsertedInSearchField()
         {
-            _homepaje.InsertWordInSearchfield("Summer");
+            _homePage.InsertWordInSearchfield("Summer");
         }
 
         [When(@"The user clicks on the magnifier")]
         public void WhenTheUserClicksOnTheMagnifier()
         {
-            _homepaje.ClickSearchBtn();
+            _homePage.ClickSearchBtn();
         }
 
         [Then(@"The user see the same words in search field and the search header")]
