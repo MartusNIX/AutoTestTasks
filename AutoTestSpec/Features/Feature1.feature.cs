@@ -74,14 +74,25 @@ namespace AutoTestSpec.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("1. Comparing the searched word with the word that is displayed")]
-        [NUnit.Framework.CategoryAttribute("scenario1")]
-        public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayed()
+        [NUnit.Framework.DescriptionAttribute("1. Comparing the searched word with the word that is displayed using browser - Ch" +
+            "rome")]
+        [NUnit.Framework.CategoryAttribute("Browser_Chrome")]
+        [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
+        [NUnit.Framework.TestCaseAttribute("sleeve", "SLEEVE", null)]
+        public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayedUsingBrowser_Chrome(string enteredWord, string expectedHederWord, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
-                    "scenario1"};
+            string[] @__tags = new string[] {
+                    "Browser_Chrome"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("Entered word", enteredWord);
+            argumentsOfScenario.Add("Expected heder word", expectedHederWord);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed using browser - Ch" +
+                    "rome", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -96,12 +107,104 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("The browser is opened on the main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.Given("The word is inserted in search field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("The word is inserted in search field {0}", enteredWord), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
  testRunner.When("The user clicks on the magnifier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
+ testRunner.Then("The user see the same words in search field and the search header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("1. Comparing the searched word with the word that is displayed using browser - Ed" +
+            "ge")]
+        [NUnit.Framework.CategoryAttribute("Browser_Edge")]
+        [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
+        [NUnit.Framework.TestCaseAttribute("sleeve", "SLEEVE", null)]
+        public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayedUsingBrowser_Edge(string enteredWord, string expectedHederWord, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Browser_Edge"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Entered word", enteredWord);
+            argumentsOfScenario.Add("Expected heder word", expectedHederWord);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed using browser - Ed" +
+                    "ge", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 18
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 19
+ testRunner.Given("The browser is opened on the main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 20
+ testRunner.Given(string.Format("The word is inserted in search field {0}", enteredWord), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 21
+ testRunner.When("The user clicks on the magnifier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 22
+ testRunner.Then("The user see the same words in search field and the search header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("1. Comparing the searched word with the word that is displayed using browser - Fi" +
+            "reFox")]
+        [NUnit.Framework.CategoryAttribute("Browser_Firefox")]
+        [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
+        [NUnit.Framework.TestCaseAttribute("sleeve", "SLEEVE", null)]
+        public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayedUsingBrowser_FireFox(string enteredWord, string expectedHederWord, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Browser_Firefox"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Entered word", enteredWord);
+            argumentsOfScenario.Add("Expected heder word", expectedHederWord);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed using browser - Fi" +
+                    "reFox", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 30
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 31
+ testRunner.Given("The browser is opened on the main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 32
+ testRunner.Given(string.Format("The word is inserted in search field {0}", enteredWord), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 33
+ testRunner.When("The user clicks on the magnifier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 34
  testRunner.Then("The user see the same words in search field and the search header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

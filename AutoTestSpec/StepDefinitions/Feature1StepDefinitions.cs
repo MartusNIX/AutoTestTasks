@@ -1,6 +1,6 @@
 using AutoTestTasks.Pages;
-using AutoTestSpec.Drivers;
 using NUnit.Framework;
+using AutoTestSpec.Hooks;
 
 namespace AutoTestSpec.StepDefinitions
 {
@@ -19,16 +19,17 @@ namespace AutoTestSpec.StepDefinitions
         [Given(@"The browser is opened on the main page")]
         public void GivenTheBrowserIsOpenedOnTheMainPage()
         {
+
             var expectedTitle = "My Store";
             var actualTitle = _homePage.pageTitle;
             Assert.AreEqual(expectedTitle, actualTitle);
 
         }
 
-        [Given(@"The word is inserted in search field")]
-        public void GivenTheWordIsInsertedInSearchField()
-        {
-            _homePage.InsertWordInSearchfield("Summer");
+        [Given(@"The word is inserted in search field (.*)")]
+        public void GivenTheWordIsInsertedInSearchField(string fieldValue)
+        {;
+            _homePage.InsertWordInSearchfield(fieldValue);
         }
 
         [When(@"The user clicks on the magnifier")]
