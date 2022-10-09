@@ -14,19 +14,19 @@ namespace AutoTestSpec.Hooks
             browserDriverFactory = new BrowserDriverFactory();
         }
 
-        [BeforeScenario("Browser_Chrome", Order = 1)]
+        [BeforeScenario("Browser_Chrome")]
         public void BeforeScenarioChrome_Browser_Chrome()
         {
             _currentWebDriverLazy = new Lazy<IWebDriver>(CreateWebDriver("Browser_Chrome"));
         }
 
-        [BeforeScenario("Browser_Edge", Order = 2)]
+        [BeforeScenario("Browser_Edge")]
         public void BeforeScenarioFirefox_Browser_Edge()
         {
             _currentWebDriverLazy = new Lazy<IWebDriver>(CreateWebDriver("Browser_Edge"));
         }
 
-        [BeforeScenario("Browser_Firefox", Order = 3)]
+        [BeforeScenario("Browser_Firefox")]
         public void BeforeScenario_Browser_Firefox()
         {
             _currentWebDriverLazy = new Lazy<IWebDriver>(CreateWebDriver("Browser_Firefox"));

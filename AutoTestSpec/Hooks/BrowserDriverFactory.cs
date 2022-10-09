@@ -1,10 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
 
 namespace AutoTestSpec.Hooks
 {
@@ -16,7 +13,7 @@ namespace AutoTestSpec.Hooks
             {
                 case "Browser_Chrome": return GetChromeDriver();
                 case "Browser_Edge": return GetEdgeDriver();
-                case "Browser_Firefox": return GetFireFoxDriver();
+                case "Browser_Firefox": return GetFirefoxDriver();
                 default: throw new NotSupportedException("Browser is not supported by the BrowserDrivers");
             }
         }
@@ -31,19 +28,19 @@ namespace AutoTestSpec.Hooks
 
         private IWebDriver GetEdgeDriver()
         {
-            var chromeDriverService = ChromeDriverService.CreateDefaultService();
-            var chromeOptions = new ChromeOptions();
-            var chromeDriver = new ChromeDriver(chromeDriverService, chromeOptions);
-            return chromeDriver;
+            var edgeDriverService = EdgeDriverService.CreateDefaultService();
+            var edgeOptions = new EdgeOptions();
+            var edgeDriver = new EdgeDriver(edgeDriverService, edgeOptions);
+            return edgeDriver;
 
         }
 
-        private IWebDriver GetFireFoxDriver()
+        private IWebDriver GetFirefoxDriver()
         {
-            var chromeDriverService = ChromeDriverService.CreateDefaultService();
-            var chromeOptions = new ChromeOptions();
-            var chromeDriver = new ChromeDriver(chromeDriverService, chromeOptions);
-            return chromeDriver;
+            var firefoxDriverService = FirefoxDriverService.CreateDefaultService();
+            var firefoxOptions = new FirefoxOptions();
+            var firefoxDriver = new FirefoxDriver(firefoxDriverService, firefoxOptions);
+            return firefoxDriver;
         }
     }
 }
