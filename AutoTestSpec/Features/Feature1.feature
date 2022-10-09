@@ -2,6 +2,9 @@
 
 Compearing entered word in search field with word that displayed in header
 
+@Browser_Chrome
+@Browser_IE
+@Browser_Firefox
 @scenario1
 Scenario: 1. Comparing the searched word with the word that is displayed
 	Given The browser is opened on the main page

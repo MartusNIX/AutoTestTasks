@@ -36,6 +36,7 @@ namespace AutoTestSpec.Hooks
             var chromeOptions = new ChromeOptions();
             var chromeDriver = new ChromeDriver(chromeDriverService, chromeOptions);
             return chromeDriver;
+
         }
 
         private IWebDriver GetFireFoxDriver()
