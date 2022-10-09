@@ -6,39 +6,37 @@ namespace AutoTestSpec.Hooks
     public class BrowserDrivers : IDisposable
     {
         private readonly BrowserDriverFactory browserDriverFactory;
-        private readonly Lazy<IWebDriver> _currentWebDriverLazy;
+        private Lazy<IWebDriver> _currentWebDriverLazy;
         private bool _isDisposed;
 
         public BrowserDrivers()
         {
             browserDriverFactory = new BrowserDriverFactory();
-            _currentWebDriverLazy = new Lazy<IWebDriver>(CreateWebDriver);
         }
 
-        [BeforeScenario("Browser_Chrome")]
-        public void BeforeScenario_Browser_Chrome()
+        [BeforeScenario("Browser_Chrome", Order = 1)]
+        public void BeforeScenarioChrome_Browser_Chrome()
         {
-            var stubbedLineForDebugOnly = "";
+            _currentWebDriverLazy = new Lazy<IWebDriver>(CreateWebDriver("Browser_Chrome"));
         }
 
-        [BeforeScenario("Browser_Edge")]
-        public void BeforeScenario_Browser_Edge()
+        [BeforeScenario("Browser_Edge", Order = 2)]
+        public void BeforeScenarioFirefox_Browser_Edge()
         {
-            var stubbedLineForDebugOnly = "";
+            _currentWebDriverLazy = new Lazy<IWebDriver>(CreateWebDriver("Browser_Edge"));
         }
 
-        [BeforeScenario("Browser_Firefox")]
+        [BeforeScenario("Browser_Firefox", Order = 3)]
         public void BeforeScenario_Browser_Firefox()
         {
-            var stubbedLineForDebugOnly = "";
+            _currentWebDriverLazy = new Lazy<IWebDriver>(CreateWebDriver("Browser_Firefox"));
         }
 
         public IWebDriver Current => _currentWebDriverLazy.Value;
-
-        private IWebDriver CreateWebDriver()
+        
+        private IWebDriver CreateWebDriver(string browserName)
         {
-            string browserId = "Browser_Chrome";//ConfigurationManager.AppSettings["Browser_Chrome"];
-            return browserDriverFactory.GetWebDriver(browserId); ;
+            return browserDriverFactory.GetWebDriver(browserName);
         }
 
         public void Dispose()

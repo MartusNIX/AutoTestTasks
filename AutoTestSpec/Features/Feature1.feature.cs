@@ -74,12 +74,12 @@ namespace AutoTestSpec.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("1. Comparing the searched word with the word that is displayed using browser - Ed" +
-            "ge")]
+        [NUnit.Framework.DescriptionAttribute("1. Comparing the searched word with the word that is displayed using browser - Ch" +
+            "rome")]
         [NUnit.Framework.CategoryAttribute("Browser_Chrome")]
         [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
         [NUnit.Framework.TestCaseAttribute("sleeve", "SLEEVE", null)]
-        public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayedUsingBrowser_Edge(string enteredWord, string expectedHederWord, string[] exampleTags)
+        public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayedUsingBrowser_Chrome(string enteredWord, string expectedHederWord, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Browser_Chrome"};
@@ -91,8 +91,8 @@ namespace AutoTestSpec.Features
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Entered word", enteredWord);
             argumentsOfScenario.Add("Expected heder word", expectedHederWord);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed using browser - Ed" +
-                    "ge", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed using browser - Ch" +
+                    "rome", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -120,12 +120,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("1. Comparing the searched word with the word that is displayed using browser - Ch" +
-            "rome")]
+        [NUnit.Framework.DescriptionAttribute("1. Comparing the searched word with the word that is displayed using browser - Ed" +
+            "ge")]
         [NUnit.Framework.CategoryAttribute("Browser_Edge")]
         [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
         [NUnit.Framework.TestCaseAttribute("sleeve", "SLEEVE", null)]
-        public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayedUsingBrowser_Chrome(string enteredWord, string expectedHederWord, string[] exampleTags)
+        public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayedUsingBrowser_Edge(string enteredWord, string expectedHederWord, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Browser_Edge"};
@@ -137,8 +137,8 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Entered word", enteredWord);
             argumentsOfScenario.Add("Expected heder word", expectedHederWord);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed using browser - Ch" +
-                    "rome", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed using browser - Ed" +
+                    "ge", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
