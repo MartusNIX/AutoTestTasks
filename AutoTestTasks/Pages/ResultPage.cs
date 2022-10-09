@@ -21,7 +21,7 @@ namespace AutoTestTasks.Pages
         public string GetInsertedWord() => searchField.GetAttribute("value").ToLower();
         public string GetDisplayedWord() => headerText.Text.TrimStart('\"').TrimEnd('\"').ToLower();
         public void ClickDropdownProductSortHighFirst() => dropdownProductSortHighFirst.Click();
-        public void GetPrice()
+/*        public void GetPrice()
         {
             IWebElement webElement = driver.FindElement(By.CssSelector(".product_list.row.grid"));
             IList<IWebElement> webElementList = webElement.FindElements(By.CssSelector(".price.product-price"));
@@ -48,7 +48,7 @@ namespace AutoTestTasks.Pages
             {
                 System.Console.WriteLine(price.Text);
             }
-        }
+        }*/
         
         public IWebElement elementPrice1 => driver.FindElement(By.CssSelector("#center_column > ul > li.ajax_block_product.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line.col-xs-12.col-sm-6.col-md-4 > div > div.right-block > div.content_price > span.old-price.product-price"));
         public IWebElement elementPrice2 => driver.FindElement(By.CssSelector("#center_column > ul > li:nth-child(2) > div > div.right-block > div.content_price > span"));

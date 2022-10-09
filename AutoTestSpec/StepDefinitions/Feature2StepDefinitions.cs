@@ -3,6 +3,7 @@ using TechTalk.SpecFlow;
 using AutoTestTasks.Pages;
 using NUnit.Framework;
 using AutoTestSpec.Hooks;
+using OpenQA.Selenium;
 
 namespace AutoTestSpec.StepDefinitions
 {
@@ -47,11 +48,24 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"The elements are displayed sorted")]
         public void ThenTheElementsAreDisplayedSorted()
         {
-            var price1 = _resultPage.elementPrice1;
-            var price2 = _resultPage.elementPrice2;
-            var price3 = _resultPage.elementPrice3;
-            var price4 = _resultPage.elementPrice4;
-            Console.WriteLine("{0} {1} {2} {3}", price1.Text, price2.Text, price3.Text, price4.Text);
+            var price1 = GetPrice(_resultPage.elementPrice1);
+            var price2 = GetPrice(_resultPage.elementPrice2);
+            var price3 = GetPrice(_resultPage.elementPrice3);
+            var price4 = GetPrice(_resultPage.elementPrice4);
+          
+            Console.WriteLine("{0} {1} {2} {3}", price1, price2, price3, price4);
+
+            Assert.Multiple(() =>
+            {
+                Assert.Greater(price1, price2);
+                Assert.Greater(price2, price3);
+                Assert.Greater(price3, price4);               
+            });
+
+        }
+        private float GetPrice(IWebElement element)
+        {
+            return float.Parse(element.Text.Trim('$'));
         }
     }
 }

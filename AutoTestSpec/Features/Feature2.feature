@@ -13,3 +13,27 @@ Scenario: Checking the price sorting downgrade using browser - Chrome
 		Examples: 
 	| Entered word | Expected heder word |
 	| Summer       | SUMMER              |
+
+@Browser_Edge
+Scenario: Checking the price sorting downgrade using browser - Edge
+	Given The browser is opened on the Main page
+	Given The word is inserted in Search field <Entered word>
+	Given The magnifier is clicked
+	When The user pressed sorting price by downgrade
+	Then The elements are displayed sorted 
+
+		Examples: 
+	| Entered word | Expected heder word |
+	| Summer       | SUMMER              |
+
+@Browser_FireFox
+Scenario: Checking the price sorting downgrade using browser - FireFox
+	Given The browser is opened on the Main page
+	Given The word is inserted in Search field <Entered word>
+	Given The magnifier is clicked
+	When The user pressed sorting price by downgrade
+	Then The elements are displayed sorted 
+
+		Examples: 
+	| Entered word | Expected heder word |
+	| Summer       | SUMMER              |
