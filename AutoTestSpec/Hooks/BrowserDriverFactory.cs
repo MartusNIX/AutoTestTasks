@@ -12,13 +12,12 @@ namespace AutoTestSpec.Hooks
     {
         public IWebDriver GetWebDriver(string browserId)
         {
-            //string browserName = browserId.ToUpper();
             switch (browserId)
             {
-                case "CHROME": return GetChromeDriver();
-                case "EDGE": return GetEdgeDriver();
-                case "FIREFOX": return GetFireFoxDriver();
-                default: throw new NotSupportedException("Not supported browser: <null>");
+                case "Browser_Chrome": return GetChromeDriver();
+                case "Browser_Edge": return GetEdgeDriver();
+                case "Browser_Firefox": return GetFireFoxDriver();
+                default: throw new NotSupportedException("Browser is not supported by the BrowserDrivers");
             }
         }
 

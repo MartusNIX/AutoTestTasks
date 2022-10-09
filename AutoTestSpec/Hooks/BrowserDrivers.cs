@@ -1,8 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System.Configuration;
-using System.Formats.Asn1;
-using System.Xml;
 
 namespace AutoTestSpec.Hooks
 {
@@ -13,38 +9,35 @@ namespace AutoTestSpec.Hooks
         private readonly Lazy<IWebDriver> _currentWebDriverLazy;
         private bool _isDisposed;
 
-        public BrowserDrivers(ScenarioContext context)
+        public BrowserDrivers()
         {
-            var tags = context.ScenarioInfo.Tags;
             browserDriverFactory = new BrowserDriverFactory();
             _currentWebDriverLazy = new Lazy<IWebDriver>(CreateWebDriver);
         }
 
         [BeforeScenario("Browser_Chrome")]
-        public void BeforeScenario()
+        public void BeforeScenario_Browser_Chrome()
         {
-            var tags = ScenarioContext.Current.ScenarioInfo.Tags;
-            var temmp = "";
+            var stubbedLineForDebugOnly = "";
         }
 
-        [BeforeScenario("Browser_Chrome2222")]
-        public void BeforeScenari2o()
+        [BeforeScenario("Browser_Edge")]
+        public void BeforeScenario_Browser_Edge()
         {
-            var tags = ScenarioContext.Current.ScenarioInfo.Tags;
-            var temmp = "";
+            var stubbedLineForDebugOnly = "";
+        }
+
+        [BeforeScenario("Browser_Firefox")]
+        public void BeforeScenario_Browser_Firefox()
+        {
+            var stubbedLineForDebugOnly = "";
         }
 
         public IWebDriver Current => _currentWebDriverLazy.Value;
 
         private IWebDriver CreateWebDriver()
         {
-            var tags = ScenarioContext.Current.ScenarioInfo.Tags;
-            var tag2 = ConfigurationManager.GetSection("environment");
-            var temmp = "";
-            var envVar = Environment.GetEnvironmentVariable("Test_Browser");
-            var envVar2 = Environment.GetEnvironmentVariable("browserName");
-            var varConf = ConfigurationManager.AppSettings["ChromeBrowser"];
-            string browserId = "CHROME";//ConfigurationManager.AppSettings["ChromeBrowser"];
+            string browserId = "Browser_Chrome";//ConfigurationManager.AppSettings["Browser_Chrome"];
             return browserDriverFactory.GetWebDriver(browserId); ;
         }
 
