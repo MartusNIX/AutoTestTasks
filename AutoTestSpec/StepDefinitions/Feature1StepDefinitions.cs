@@ -19,11 +19,9 @@ namespace AutoTestSpec.StepDefinitions
         [Given(@"The browser is opened on the main page")]
         public void GivenTheBrowserIsOpenedOnTheMainPage()
         {
-
             var expectedTitle = "My Store";
             var actualTitle = _homePage.pageTitle;
             Assert.AreEqual(expectedTitle, actualTitle);
-
         }
 
         [Given(@"The word is inserted in search field (.*)")]
