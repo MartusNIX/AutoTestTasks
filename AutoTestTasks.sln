@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTestTasks", "AutoTestTasks\AutoTestTasks.csproj", "{51F9AC8D-AB99-4DD0-9B2A-05431880F863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTestSpec", "AutoTestSpec\AutoTestSpec.csproj", "{67F62E66-434F-4C6E-A384-8D144A3A2529}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTestSpec", "AutoTestSpec\AutoTestSpec.csproj", "{67F62E66-434F-4C6E-A384-8D144A3A2529}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
