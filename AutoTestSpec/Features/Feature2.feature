@@ -2,8 +2,8 @@
 
 Checking the price sorting downgrade after searching required word.
 
-@Browser_Chrome
-Scenario: Checking the price sorting downgrade using browser - Chrome
+@Browser_Chrome 
+Scenario: 2. Checking the price sorting downgrade using browser - Chrome
 	Given The browser is opened on the Main page
 	Given The word is inserted in Search field <Entered word>
 	Given The magnifier is clicked
@@ -15,7 +15,7 @@ Scenario: Checking the price sorting downgrade using browser - Chrome
 	| Summer       | SUMMER              |
 
 @Browser_Edge
-Scenario: Checking the price sorting downgrade using browser - Edge
+Scenario: 2. Checking the price sorting downgrade using browser - Edge
 	Given The browser is opened on the Main page
 	Given The word is inserted in Search field <Entered word>
 	Given The magnifier is clicked
@@ -27,7 +27,7 @@ Scenario: Checking the price sorting downgrade using browser - Edge
 	| Summer       | SUMMER              |
 
 @Browser_FireFox
-Scenario: Checking the price sorting downgrade using browser - FireFox
+Scenario: 2. Checking the price sorting downgrade using browser - FireFox
 	Given The browser is opened on the Main page
 	Given The word is inserted in Search field <Entered word>
 	Given The magnifier is clicked

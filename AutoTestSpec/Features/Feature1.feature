@@ -12,7 +12,6 @@ Scenario: 1. Comparing the searched word with the word that is displayed using b
 	Examples: 
 	| Entered word | Expected heder word |
 	| Summer       | SUMMER              |
-	| sleeve       | SLEEVE              |
 
 @Browser_Edge
 Scenario: 1. Comparing the searched word with the word that is displayed using browser - Edge
@@ -24,7 +23,6 @@ Scenario: 1. Comparing the searched word with the word that is displayed using b
 	Examples: 
 	| Entered word | Expected heder word |
 	| Summer       | SUMMER              |
-	| sleeve       | SLEEVE              |
 
 @Browser_Firefox
 Scenario: 1. Comparing the searched word with the word that is displayed using browser - FireFox
@@ -36,4 +34,3 @@ Scenario: 1. Comparing the searched word with the word that is displayed using b
 	Examples: 
 	| Entered word | Expected heder word |
 	| Summer       | SUMMER              |
-	| sleeve       | SLEEVE              |

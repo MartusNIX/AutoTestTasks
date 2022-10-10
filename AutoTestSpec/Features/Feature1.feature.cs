@@ -78,7 +78,6 @@ namespace AutoTestSpec.Features
             "rome")]
         [NUnit.Framework.CategoryAttribute("Browser_Chrome")]
         [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
-        [NUnit.Framework.TestCaseAttribute("sleeve", "SLEEVE", null)]
         public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayedUsingBrowser_Chrome(string enteredWord, string expectedHederWord, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -124,7 +123,6 @@ this.ScenarioInitialize(scenarioInfo);
             "ge")]
         [NUnit.Framework.CategoryAttribute("Browser_Edge")]
         [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
-        [NUnit.Framework.TestCaseAttribute("sleeve", "SLEEVE", null)]
         public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayedUsingBrowser_Edge(string enteredWord, string expectedHederWord, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -139,7 +137,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Expected heder word", expectedHederWord);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed using browser - Ed" +
                     "ge", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 18
+#line 17
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -149,16 +147,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 19
+#line 18
  testRunner.Given("The browser is opened on the main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 20
+#line 19
  testRunner.Given(string.Format("The word is inserted in search field {0}", enteredWord), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 21
+#line 20
  testRunner.When("The user clicks on the magnifier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 22
+#line 21
  testRunner.Then("The user see the same words in search field and the search header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -170,7 +168,6 @@ this.ScenarioInitialize(scenarioInfo);
             "reFox")]
         [NUnit.Framework.CategoryAttribute("Browser_Firefox")]
         [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
-        [NUnit.Framework.TestCaseAttribute("sleeve", "SLEEVE", null)]
         public void _1_ComparingTheSearchedWordWithTheWordThatIsDisplayedUsingBrowser_FireFox(string enteredWord, string expectedHederWord, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -185,7 +182,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Expected heder word", expectedHederWord);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Comparing the searched word with the word that is displayed using browser - Fi" +
                     "reFox", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 30
+#line 28
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -195,16 +192,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 31
+#line 29
  testRunner.Given("The browser is opened on the main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 32
+#line 30
  testRunner.Given(string.Format("The word is inserted in search field {0}", enteredWord), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 33
+#line 31
  testRunner.When("The user clicks on the magnifier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 34
+#line 32
  testRunner.Then("The user see the same words in search field and the search header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

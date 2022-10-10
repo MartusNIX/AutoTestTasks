@@ -48,7 +48,7 @@ namespace AutoTestSpec.Hooks
 
             if (_currentWebDriverLazy.IsValueCreated)
             {
-                Current.Quit();
+                Current.Close();
             }
 
             _isDisposed = true;

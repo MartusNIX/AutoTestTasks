@@ -6,11 +6,12 @@ namespace AutoTestTasks.Pages
     {
         private const string AutopracticeUrl = "http://automationpractice.com/index.php";
         private readonly IWebDriver driver;
-        public const int DefaultWaitInSeconds = 5;
+
         public HomePage(IWebDriver webDriver)
         {
             driver = webDriver;
             driver.Navigate().GoToUrl(AutopracticeUrl);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
 
         public IWebElement searchField => driver.FindElement(By.Id("search_query_top"));
@@ -19,6 +20,5 @@ namespace AutoTestTasks.Pages
 
         public void InsertWordInSearchfield(string text) => searchField.SendKeys(text);
         public void ClickSearchBtn() => searchBtn.Click();
-        
     }
 }

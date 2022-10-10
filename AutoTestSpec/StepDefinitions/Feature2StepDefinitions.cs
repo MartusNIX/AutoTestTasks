@@ -1,5 +1,3 @@
-using System;
-using TechTalk.SpecFlow;
 using AutoTestTasks.Pages;
 using NUnit.Framework;
 using AutoTestSpec.Hooks;
@@ -52,7 +50,7 @@ namespace AutoTestSpec.StepDefinitions
             var price2 = GetPrice(_resultPage.elementPrice2);
             var price3 = GetPrice(_resultPage.elementPrice3);
             var price4 = GetPrice(_resultPage.elementPrice4);
-          
+
             Console.WriteLine("{0} {1} {2} {3}", price1, price2, price3, price4);
 
             Assert.Multiple(() =>
@@ -61,7 +59,6 @@ namespace AutoTestSpec.StepDefinitions
                 Assert.Greater(price2, price3);
                 Assert.Greater(price3, price4);               
             });
-
         }
         private float GetPrice(IWebElement element)
         {

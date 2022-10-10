@@ -74,10 +74,10 @@ namespace AutoTestSpec.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Checking the price sorting downgrade using browser - Chrome")]
+        [NUnit.Framework.DescriptionAttribute("2. Checking the price sorting downgrade using browser - Chrome")]
         [NUnit.Framework.CategoryAttribute("Browser_Chrome")]
         [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
-        public void CheckingThePriceSortingDowngradeUsingBrowser_Chrome(string enteredWord, string expectedHederWord, string[] exampleTags)
+        public void _2_CheckingThePriceSortingDowngradeUsingBrowser_Chrome(string enteredWord, string expectedHederWord, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Browser_Chrome"};
@@ -89,7 +89,7 @@ namespace AutoTestSpec.Features
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Entered word", enteredWord);
             argumentsOfScenario.Add("Expected heder word", expectedHederWord);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Checking the price sorting downgrade using browser - Chrome", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2. Checking the price sorting downgrade using browser - Chrome", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -120,10 +120,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Checking the price sorting downgrade using browser - Edge")]
+        [NUnit.Framework.DescriptionAttribute("2. Checking the price sorting downgrade using browser - Edge")]
         [NUnit.Framework.CategoryAttribute("Browser_Edge")]
         [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
-        public void CheckingThePriceSortingDowngradeUsingBrowser_Edge(string enteredWord, string expectedHederWord, string[] exampleTags)
+        public void _2_CheckingThePriceSortingDowngradeUsingBrowser_Edge(string enteredWord, string expectedHederWord, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Browser_Edge"};
@@ -135,7 +135,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Entered word", enteredWord);
             argumentsOfScenario.Add("Expected heder word", expectedHederWord);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Checking the price sorting downgrade using browser - Edge", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2. Checking the price sorting downgrade using browser - Edge", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -166,10 +166,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Checking the price sorting downgrade using browser - FireFox")]
+        [NUnit.Framework.DescriptionAttribute("2. Checking the price sorting downgrade using browser - FireFox")]
         [NUnit.Framework.CategoryAttribute("Browser_FireFox")]
         [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
-        public void CheckingThePriceSortingDowngradeUsingBrowser_FireFox(string enteredWord, string expectedHederWord, string[] exampleTags)
+        public void _2_CheckingThePriceSortingDowngradeUsingBrowser_FireFox(string enteredWord, string expectedHederWord, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Browser_FireFox"};
@@ -181,7 +181,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Entered word", enteredWord);
             argumentsOfScenario.Add("Expected heder word", expectedHederWord);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Checking the price sorting downgrade using browser - FireFox", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2. Checking the price sorting downgrade using browser - FireFox", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 30
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
