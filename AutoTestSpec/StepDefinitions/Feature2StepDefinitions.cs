@@ -46,9 +46,9 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"The elements are displayed sorted")]
         public void ThenTheElementsAreDisplayedSorted()
         {
-            var price1 = GetPrice(_resultPage.elementPrice1);
+            var price1 = GetPrice(_resultPage.elementPriceOld1);
             var price2 = GetPrice(_resultPage.elementPrice2);
-            var price3 = GetPrice(_resultPage.elementPrice3);
+            var price3 = GetPrice(_resultPage.elementPriceOld3);
             var price4 = GetPrice(_resultPage.elementPrice4);
 
             Console.WriteLine("{0} {1} {2} {3}", price1, price2, price3, price4);
