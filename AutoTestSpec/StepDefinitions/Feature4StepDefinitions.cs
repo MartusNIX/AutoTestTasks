@@ -69,7 +69,7 @@ namespace AutoTestSpec.StepDefinitions
             bool actualResult = _blausePage.ModalWindowIsShown();
             Assert.True(actualResult);
             Console.WriteLine(actualResult);
-            /*Assert.AreEqual(true, actualResult);*/
+            Assert.AreEqual(true, actualResult);
         }
 
     }
