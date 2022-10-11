@@ -114,7 +114,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the Continue_shopping bttn is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
-  testRunner.And("the Printed_summe_dress is inserted in search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Printed_summer_dress is inserted in search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
   testRunner.And("The magnifier is Clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

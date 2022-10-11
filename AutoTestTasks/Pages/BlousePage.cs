@@ -25,7 +25,8 @@ namespace AutoTestTasks.Pages
         public IWebElement searchField => driver.FindElement(By.Id("search_query_top"));
         public IWebElement searchBtn => driver.FindElement(By.Name("submit_search"));
 
-        public void ClearPreviousData() => insertQuantityField.Clear();
+        public void ClearPreviousDataFromQuantity() => searchField.Clear();
+        public void ClearPreviousDataFromSearch() => insertQuantityField.Clear();
         public void InsertWordInInputField(string text) => insertQuantityField.SendKeys(text);
         public void SelectLargeSize() => dropdownSize.Click();
         public void SelectColor() => listColorPicer.Click();

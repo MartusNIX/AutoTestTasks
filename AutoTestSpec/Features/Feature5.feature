@@ -11,7 +11,7 @@ Scenario: Checkout 2 product
 		And The product properties is checked
 		And The Add_to_cart button clicked
 		And the Continue_shopping bttn is clicked
-		And the Printed_summe_dress is inserted in search
+		And the Printed_summer_dress is inserted in search
 		And The magnifier is Clicked
 		And the More bttn is clicked
 		And the properties for second product is checked

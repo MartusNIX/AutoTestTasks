@@ -11,23 +11,24 @@ namespace AutoTestSpec.StepDefinitions
         private readonly HomePage _homePage;
         private readonly ResultBlousePage _resultBlousePage;
         private readonly CartPage _cartPage;
-        private readonly BlousePage _blausePage;
+        private readonly BlousePage _blousePage;
         private readonly ResultPage _resultPage;
         public Feature5StepDefinitions(BrowserDrivers browserDrivers)
         {
             _homePage = new HomePage(browserDrivers.Current);
             _resultBlousePage = new ResultBlousePage(browserDrivers.Current);
             _cartPage = new CartPage(browserDrivers.Current);
-            _blausePage = new BlousePage(browserDrivers.Current);
+            _blousePage = new BlousePage(browserDrivers.Current);
             _resultPage = new ResultPage(browserDrivers.Current);
         }
 
 
 
-        [Given(@"the Printed_summe_dress is inserted in search")]
+        [Given(@"the Printed_summer_dress is inserted in search")]
         public void GivenThePrinted_Summe_DressIsInsertedInSearch()
         {
-            _blausePage.InsertWordInSearchfield("Printed Summer Dress");
+            _blousePage.ClearPreviousDataFromSearch();
+            _blousePage.InsertWordInSearchfield("Printed summer dress");
         }
 
         [Given(@"the More bttn is clicked")]

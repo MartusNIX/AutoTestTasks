@@ -12,13 +12,13 @@ namespace AutoTestSpec.StepDefinitions
         private readonly HomePage _homePage;
         private readonly ResultBlousePage _resultBlousePage;
         private readonly CartPage _cartPage;
-        private readonly BlousePage _blausePage;
+        private readonly BlousePage _blousePage;
         public Feature4StepDefinitions(BrowserDrivers browserDrivers)
         {
             _homePage = new HomePage(browserDrivers.Current);
             _resultBlousePage = new ResultBlousePage(browserDrivers.Current);
             _cartPage = new CartPage(browserDrivers.Current);
-            _blausePage = new BlousePage(browserDrivers.Current);
+            _blousePage = new BlousePage(browserDrivers.Current);
         }
 
         [Given(@"The browser is opened on the home page")]
@@ -51,35 +51,37 @@ namespace AutoTestSpec.StepDefinitions
         [Given(@"The product properties is checked")]
         public void GivenTheProductPropertiesIsChecked()
         {
-            _blausePage.ClearPreviousData();
-            _blausePage.InsertWordInInputField("3");
-            _blausePage.SelectLargeSize();
-            _blausePage.SelectColor();
+            _blousePage.ClearPreviousDataFromQuantity();
+            _blousePage.InsertWordInInputField("3");
+            _blousePage.SelectLargeSize();
+            _blousePage.SelectColor();
         }
 
         [Given(@"The Add_to_cart button clicked")]
         public void GivenTheAdd_To_CartButtonClicked()
         {
-            _blausePage.ClickAddToCardBtn();
+            _blousePage.ClickAddToCardBtn();
         }
 
         [When(@"The Add_to_cart button clicked")]
         public void WhenTheAdd_To_CartButtonClicked()
         {
-            _blausePage.ClickAddToCardBtn();
+            _blousePage.ClickAddToCardBtn();
         }
 
         [Then(@"The user see the Product successfully added to your shopping cart pop-up")]
         public void ThenTheUserSeeTheProductSuccessfullyAddedToYourShoppingCartPop_Up()
         {
-            bool actualResult = _blausePage.ModalWindowIsShown();
+            bool actualResult = _blousePage.ModalWindowIsShown();
             Assert.True(actualResult);
         }
 
         [Given(@"the Continue_shopping bttn is clicked")]
         public void GivenTheContinue_ShoppingBttnIsClicked()
         {
-            _blausePage.ClickContinueShoppingBtn();
+            _blousePage.ClickContinueShoppingBtn();
         }
+
+
     }
 }
