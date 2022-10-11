@@ -25,11 +25,11 @@ namespace AutoTestTasks.Pages
         public string GetInsertedWord() => searchField.GetAttribute("value").ToLower();
         public string GetDisplayedWord() => headerText.Text.TrimStart('\"').TrimEnd('\"').ToLower();
         public void ClickDropdownProductSortHighFirst() => dropdownProductSortHighFirst.Click();
-        public string GetProductName() => titleFirstProductOnResultPage.Text;
         public void ClickOnFirstProduct() => btnAddToCardFirstProductOnResultPage.Click();
         public void ClickOnLProceedToCheckoutBtn() => btnProceedToCheckout.Click();
 
         public string GetNewProductPrice() => elementPrice1.Text;
         public string GetOldProductPrice() => elementPriceOld1.Text;
+        public string GetProductName() => titleFirstProductOnResultPage.Text;
     }
 }

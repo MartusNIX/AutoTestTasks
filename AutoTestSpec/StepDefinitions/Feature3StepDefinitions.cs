@@ -13,7 +13,7 @@ namespace AutoTestSpec.StepDefinitions
         private readonly ResultPage _resultPage;
         private readonly CartPage _cartPage;
 
-/*        private string productPriceNew;*/
+        private string productPriceNew;
         private string productName;
         private string productOld;
 
@@ -59,7 +59,7 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"The user go to product card page")]
         public void ThenTheUserGoToProductCardPage()
         {
-/*            productPriceNew = _resultPage.GetNewProductPrice();*/
+            productPriceNew = _resultPage.GetNewProductPrice();
             productName = _resultPage.GetProductName();
             productOld = _resultPage.GetOldProductPrice();
             _resultPage.ClickOnLProceedToCheckoutBtn();
@@ -70,7 +70,7 @@ namespace AutoTestSpec.StepDefinitions
         {
             var priceFromFirstProductOnCartPage = _cartPage.GetPriceFirstProductNameOnCartPage();
             var titleProductCartPage = _cartPage.GetFirstProductTitleOnCartPage();
-            Assert.AreEqual(priceFromFirstProductOnCartPage, productOld);
+            Assert.AreEqual(priceFromFirstProductOnCartPage, productPriceNew);
             Assert.AreEqual(titleProductCartPage, productName);
         }
     }
