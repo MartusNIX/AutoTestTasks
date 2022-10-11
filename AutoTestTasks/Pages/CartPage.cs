@@ -14,6 +14,7 @@ namespace AutoTestTasks.Pages
         public CartPage(IWebDriver webDdriver)
         {
             driver = webDdriver;
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
 
         public IWebElement titleFirstProductOnCartPage => driver.FindElement(By.CssSelector("#product_5_19_0_0 > td.cart_description > p > a"));

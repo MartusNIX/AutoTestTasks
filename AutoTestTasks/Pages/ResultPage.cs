@@ -9,6 +9,7 @@ namespace AutoTestTasks.Pages
         public ResultPage(IWebDriver webDriver)
         {
             driver = webDriver;
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
         public IWebElement searchField => driver.FindElement(By.Id("search_query_top"));
         public IWebElement headerText => driver.FindElement(By.ClassName("lighter"));
