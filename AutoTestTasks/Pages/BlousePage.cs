@@ -21,16 +21,21 @@ namespace AutoTestTasks.Pages
         public IWebElement listColorPicer => driver.FindElement(By.CssSelector("#color_to_pick_list > li:nth-child(1)"));
         public IWebElement btnAddToCard => driver.FindElement(By.Name("Submit"));
         public IWebElement modalWindow => driver.FindElement(By.CssSelector("#layer_cart > div.clearfix"));
+        public IWebElement btnContinueShopping => driver.FindElement(By.CssSelector("span[title = 'Continue shopping']"));
+        public IWebElement searchField => driver.FindElement(By.Id("search_query_top"));
+        public IWebElement searchBtn => driver.FindElement(By.Name("submit_search"));
 
         public void ClearPreviousData() => insertQuantityField.Clear();
         public void InsertWordInInputField(string text) => insertQuantityField.SendKeys(text);
         public void SelectLargeSize() => dropdownSize.Click();
         public void SelectColor() => listColorPicer.Click();
         public void ClickAddToCardBtn() => btnAddToCard.Click();
-
+        public void ClickContinueShoppingBtn() => btnContinueShopping.Click();
         public bool ModalWindowIsShown()
         {
             return driver.FindElement(By.CssSelector("#layer_cart > div.clearfix")).Enabled;
         }
+        public void InsertWordInSearchfield(string text) => searchField.SendKeys(text);
+        public void ClickSearchBtn() => searchBtn.Click();
     }
 }

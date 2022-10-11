@@ -22,15 +22,17 @@ namespace AutoTestTasks.Pages
         public IWebElement btnAddToCardFirstProductOnResultPage => driver.FindElement(By.CssSelector("a.button.ajax_add_to_cart_button.btn.btn-default"));
         public IWebElement btnProceedToCheckout => driver.FindElement(By.CssSelector("#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > a"));
         public IWebElement titleFirstProductOnResultPage => driver.FindElement(By.CssSelector("#center_column > ul > li.ajax_block_product.col-xs-12.col-sm-6.col-md-4.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line > div > div.right-block > h5 > a"));
+        public IWebElement btnMoreOnResultPage => driver.FindElement(By.CssSelector("a[title = 'View']"));
 
         public string GetInsertedWord() => searchField.GetAttribute("value").ToLower();
         public string GetDisplayedWord() => headerText.Text.TrimStart('\"').TrimEnd('\"').ToLower();
         public void ClickDropdownProductSortHighFirst() => dropdownProductSortHighFirst.Click();
         public void ClickOnFirstProduct() => btnAddToCardFirstProductOnResultPage.Click();
         public void ClickOnLProceedToCheckoutBtn() => btnProceedToCheckout.Click();
-
         public string GetNewProductPrice() => elementPrice1.Text;
         public string GetOldProductPrice() => elementPriceOld1.Text;
         public string GetProductName() => titleFirstProductOnResultPage.Text;
+        public void ClickOnMoreOnResultPage () => btnMoreOnResultPage.Click();
+
     }
 }

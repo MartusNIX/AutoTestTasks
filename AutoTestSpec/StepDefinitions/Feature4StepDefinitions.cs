@@ -57,7 +57,13 @@ namespace AutoTestSpec.StepDefinitions
             _blausePage.SelectColor();
         }
 
-        [When(@"The  Add_to_cart button clicked")]
+        [Given(@"The Add_to_cart button clicked")]
+        public void GivenTheAdd_To_CartButtonClicked()
+        {
+            _blausePage.ClickAddToCardBtn();
+        }
+
+        [When(@"The Add_to_cart button clicked")]
         public void WhenTheAdd_To_CartButtonClicked()
         {
             _blausePage.ClickAddToCardBtn();
@@ -68,9 +74,12 @@ namespace AutoTestSpec.StepDefinitions
         {
             bool actualResult = _blausePage.ModalWindowIsShown();
             Assert.True(actualResult);
-            Console.WriteLine(actualResult);
-            Assert.AreEqual(true, actualResult);
         }
 
+        [Given(@"the Continue_shopping bttn is clicked")]
+        public void GivenTheContinue_ShoppingBttnIsClicked()
+        {
+            _blausePage.ClickContinueShoppingBtn();
+        }
     }
 }
