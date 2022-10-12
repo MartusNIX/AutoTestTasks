@@ -23,6 +23,8 @@ namespace AutoTestSpec.StepDefinitions
         private string price2Product;
         private string qty1Product;
         private string qty2Product;
+        private string total1Product;
+        private string total2Product;
 
         public Feature4StepDefinitions(BrowserDrivers browserDrivers)
         {
@@ -99,6 +101,7 @@ namespace AutoTestSpec.StepDefinitions
             _blousePage.ClickContinueShoppingBtn();
             color1Product = _blousePage.GetProductColor();
             qty1Product = _blousePage.GetProductQty();
+            total1Product = _blousePage.GetProductTotal();
         }
 
         [Given(@"the Printed_summer_dress is inserted in search")]
@@ -137,7 +140,8 @@ namespace AutoTestSpec.StepDefinitions
         {
             _blousePage.ClickCheckoutBtn();
             color2Product = _blousePage.GetProductColor();
-            qty1Product = _blousePage.GetProductQty();
+            qty2Product = _blousePage.GetProductQty();
+            total2Product = _blousePage.GetProductTotal();
         }
 
         [Then(@"two product displayed correctly")]
@@ -165,7 +169,10 @@ namespace AutoTestSpec.StepDefinitions
             var qtyProduct2 = _cartPage.Get2ProductQtyCardPage();
             Console.WriteLine("1:{0} 2:{1}", qtyProduct2, qty2Product);
 
-            var generalPrice = _cartPage.GetTotalProductsCartPage();
+            var totalPrice1 = _cartPage.GetTotal1ProductCartPage();
+            Console.WriteLine("1:{0} 2:{1}", totalPrice1, total1Product);
+            var totalPrice2 = _cartPage.GetTotal2ProductCartPage();
+            Console.WriteLine("1:{0} 2:{1}", totalPrice2, total2Product);
 
         }
     }
