@@ -13,12 +13,19 @@ namespace AutoTestSpec.StepDefinitions
         private readonly ResultBlousePage _resultBlousePage;
         private readonly CartPage _cartPage;
         private readonly BlousePage _blousePage;
+        private readonly ResultPage _resultPage;
+
+        private string titleProduct;
+        private string priceProduct;
+        private string amountProduct;
+
         public Feature4StepDefinitions(BrowserDrivers browserDrivers)
         {
             _homePage = new HomePage(browserDrivers.Current);
             _resultBlousePage = new ResultBlousePage(browserDrivers.Current);
             _cartPage = new CartPage(browserDrivers.Current);
             _blousePage = new BlousePage(browserDrivers.Current);
+            _resultPage = new ResultPage(browserDrivers.Current);
         }
 
         [Given(@"The browser is opened on the home page")]
@@ -54,7 +61,7 @@ namespace AutoTestSpec.StepDefinitions
             _blousePage.ClearPreviousDataFromQuantity();
             _blousePage.InsertWordInInputField("3");
             _blousePage.SelectLargeSize();
-            _blousePage.SelectColor();
+            _blousePage.SelectBlackColor();
         }
 
         [Given(@"The Add_to_cart button clicked")]
@@ -82,6 +89,60 @@ namespace AutoTestSpec.StepDefinitions
             _blousePage.ClickContinueShoppingBtn();
         }
 
+        [Given(@"the Printed_summer_dress is inserted in search")]
+        public void GivenThePrinted_Summe_DressIsInsertedInSearch()
+        {
+            _blousePage.ClearPreviousDataFromSearch();
+            _blousePage.InsertWordInSearchfield("Printed summer dress");
+        }
 
+        [Given(@"The magnifier is Clicked on product page")]
+        public void GivenTheMagnifierIsClickedOnProductPage()
+        {
+            _blousePage.ClickSearchBtn();
+        }
+
+        [Given(@"the More bttn is clicked")]
+        public void GivenTheMoreBttnIsClicked()
+        {
+            _resultPage.ClickOnMoreOnResultPage();
+        }
+
+        [Given(@"the properties for second product is checked")]
+        public void GivenThePropertiesForSecondProductIsChecked()
+        {
+            _blousePage.ClearPreviousDataFromQuantity();
+            _blousePage.InsertWordInInputField("5");
+            _blousePage.SelectMediumSize();
+            _blousePage.SelectOrangeColor();
+        }
+
+        [When(@"the Proceed_to_checkout is clicked")]
+        public void WhenTheProceed_To_CheckoutIsClicked()
+        {
+            _blousePage.ClickCheckoutBtn();
+        }
+
+        [Then(@"two product displayed correctly")]
+        public void ThenTwoProductDisplayedCorrectly()
+        {
+/*            var titleProductCart1 = _cartPage.GetFirstProductTitleOnCartPage();
+            var titleProductCart2 = _cartPage.GetSecondtProductTitleOnCartPage();
+
+            var colorProductCart1 = _cartPage
+            var colorProductCart2 = _cartPage
+
+            var priceProductCart1 = _cartPage.GetPriceFirstProductNameOnCartPage();
+            var priceProductCart2 = _cartPage.GetPriceSecondProductNameOnCartPage();
+
+            var amountProduct1 = _cartPage
+            var amountProduct2 = _cartPage
+
+            var generalPrice = _cartPage*/
+
+
+
+
+        }
     }
 }

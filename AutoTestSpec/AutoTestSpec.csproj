@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+    <PackageReference Include="Selenium.Support" Version="4.5.1" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="106.0.5249.6100" />
     <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.31.0.1" />
     <PackageReference Include="Selenium.WebDriver.MSEdgeDriver" Version="106.0.1370.34" />
