@@ -24,13 +24,20 @@ namespace AutoTestTasks.Pages
         public IWebElement dropdownLargeSize => driver.FindElement(By.CssSelector("#group_1 > option:nth-child(3)"));
         public IWebElement listColorBlack => driver.FindElement(By.Name("White"));
         public IWebElement listColorOrange => driver.FindElement(By.CssSelector("a[name = 'Orange']"));
-
         public IWebElement btnAddToCard => driver.FindElement(By.Name("Submit"));
+        public IWebElement searchField => driver.FindElement(By.Id("search_query_top"));
+        public IWebElement searchBtn => driver.FindElement(By.Name("submit_search"));
+        public IWebElement priceProductPage => driver.FindElement(By.CssSelector("span[id='our_price_display']"));
+
         public IWebElement modalWindow => driver.FindElement(By.CssSelector("#layer_cart > div.clearfix"));
         public IWebElement btnContinueShopping => driver.FindElement(By.CssSelector("span[title = 'Continue shopping']"));
         public IWebElement btnCheckout => driver.FindElement(By.CssSelector("a[title = 'Proceed to checkout']"));
-        public IWebElement searchField => driver.FindElement(By.Id("search_query_top"));
-        public IWebElement searchBtn => driver.FindElement(By.Name("submit_search"));
+        public IWebElement titleProductModal => driver.FindElement(By.Id("layer_cart_product_title"));
+        public IWebElement colorProductModal => driver.FindElement(By.Id("layer_cart_product_attributes"));
+        public IWebElement sizeProductModal => driver.FindElement(By.Id("layer_cart_product_attributes"));
+        public IWebElement qtyProductModal => driver.FindElement(By.Id("layer_cart_product_quantity"));
+        public IWebElement totalProductModal => driver.FindElement(By.Id("layer_cart_product_price"));
+
 
         public void ClearPreviousDataFromSearch() => searchField.Clear();
         public void ClearPreviousDataFromQuantity() => insertQuantityField.Clear();
@@ -44,9 +51,11 @@ namespace AutoTestTasks.Pages
         public void ClickContinueShoppingBtn() => btnContinueShopping.Click();
         public void ClickCheckoutBtn() => btnCheckout.Click();
         public void ClickSearchBtn() => searchBtn.Click();
+
         public bool ModalWindowIsShown()
         {
             return driver.FindElement(By.CssSelector("#layer_cart > div.clearfix")).Enabled;
         }
+
     }
 }

@@ -81,6 +81,8 @@ namespace AutoTestSpec.StepDefinitions
         {
             bool actualResult = _blousePage.ModalWindowIsShown();
             Assert.True(actualResult);
+
+            product1Title = 
         }
 
         [Given(@"the Continue_shopping bttn is clicked")]
@@ -115,6 +117,9 @@ namespace AutoTestSpec.StepDefinitions
             _blousePage.InsertWordInInputField("5");
             _blousePage.SelectMediumSize();
             _blousePage.SelectOrangeColor();
+
+            
+
         }
 
         [When(@"the Proceed_to_checkout is clicked")]
@@ -126,19 +131,21 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"two product displayed correctly")]
         public void ThenTwoProductDisplayedCorrectly()
         {
-/*            var titleProductCart1 = _cartPage.GetFirstProductTitleOnCartPage();
-            var titleProductCart2 = _cartPage.GetSecondtProductTitleOnCartPage();
+            var titleProductCart1 = _cartPage.Get1ProductTitleOnCartPage();
+            var titleProductCart2 = _cartPage.Get2ProductTitleOnCartPage();
 
-            var colorProductCart1 = _cartPage
-            var colorProductCart2 = _cartPage
+            var colorProductCart1 = _cartPage.Get1ProductColorCartPage();
+            var colorProductCart2 = _cartPage.Get2ProductColorCartPage();
 
-            var priceProductCart1 = _cartPage.GetPriceFirstProductNameOnCartPage();
-            var priceProductCart2 = _cartPage.GetPriceSecondProductNameOnCartPage();
+            var priceProductCart1 = _cartPage.Get1PriceProductPriceOnCartPage();
+            var priceProductCart2 = _cartPage.Get2PriceProductOnCartPage();
 
-            var amountProduct1 = _cartPage
-            var amountProduct2 = _cartPage
+            var qtyProduct1 = _cartPage.Get1ProductQtyCardPage();
+            var qtyProduct2 = _cartPage.Get2ProductQtyCardPage();
 
-            var generalPrice = _cartPage*/
+            var generalPrice = _cartPage.GetTotalProductsCartPage();
+
+
 
 
 

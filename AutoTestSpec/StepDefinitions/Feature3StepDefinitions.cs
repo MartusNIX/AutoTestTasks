@@ -68,8 +68,8 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"The name of product on Result Page and chart page are equal")]
         public void ThenTheNameOfProductOnResultPageAndChartPageAreEqual()
         {
-            var priceFromFirstProductOnCartPage = _cartPage.GetPriceFirstProductNameOnCartPage();
-            var titleProductCartPage = _cartPage.GetFirstProductTitleOnCartPage();
+            var priceFromFirstProductOnCartPage = _cartPage.Get1PriceProductPriceOnCartPage();
+            var titleProductCartPage = _cartPage.Get1ProductTitleOnCartPage();
             Assert.AreEqual(priceFromFirstProductOnCartPage, productPriceNew);
             Assert.AreEqual(titleProductCartPage, productName);
         }
