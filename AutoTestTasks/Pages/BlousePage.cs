@@ -28,11 +28,13 @@ namespace AutoTestTasks.Pages
         public IWebElement searchField => driver.FindElement(By.Id("search_query_top"));
         public IWebElement searchBtn => driver.FindElement(By.Name("submit_search"));
         public IWebElement priceProductPage => driver.FindElement(By.CssSelector("span[id='our_price_display']"));
+        public IWebElement titleProductPage => driver.FindElement(By.CssSelector("h1[itemprop='name']"));
+
 
         public IWebElement modalWindow => driver.FindElement(By.CssSelector("#layer_cart > div.clearfix"));
         public IWebElement btnContinueShopping => driver.FindElement(By.CssSelector("span[title = 'Continue shopping']"));
         public IWebElement btnCheckout => driver.FindElement(By.CssSelector("a[title = 'Proceed to checkout']"));
-        public IWebElement titleProductModal => driver.FindElement(By.Id("layer_cart_product_title"));
+        public IWebElement titleProductModal => driver.FindElement(By.CssSelector("#layer_cart_product_title"));
         public IWebElement colorProductModal => driver.FindElement(By.Id("layer_cart_product_attributes"));
         public IWebElement sizeProductModal => driver.FindElement(By.Id("layer_cart_product_attributes"));
         public IWebElement qtyProductModal => driver.FindElement(By.Id("layer_cart_product_quantity"));
@@ -56,6 +58,8 @@ namespace AutoTestTasks.Pages
         {
             return driver.FindElement(By.CssSelector("#layer_cart > div.clearfix")).Enabled;
         }
+        public string GetProductTitleModal() => titleProductModal.Text;
+        public string GetProductTitle() => titleProductPage.Text;
 
     }
 }

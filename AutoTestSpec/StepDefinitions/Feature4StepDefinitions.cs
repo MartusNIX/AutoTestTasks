@@ -15,9 +15,9 @@ namespace AutoTestSpec.StepDefinitions
         private readonly BlousePage _blousePage;
         private readonly ResultPage _resultPage;
 
+        private string titleProductModal;
         private string titleProduct;
-        private string priceProduct;
-        private string amountProduct;
+
 
         public Feature4StepDefinitions(BrowserDrivers browserDrivers)
         {
@@ -62,6 +62,8 @@ namespace AutoTestSpec.StepDefinitions
             _blousePage.InsertWordInInputField("3");
             _blousePage.SelectLargeSize();
             _blousePage.SelectBlackColor();
+
+            titleProduct = _blousePage.GetProductTitle();
         }
 
         [Given(@"The Add_to_cart button clicked")]
@@ -82,7 +84,7 @@ namespace AutoTestSpec.StepDefinitions
             bool actualResult = _blousePage.ModalWindowIsShown();
             Assert.True(actualResult);
 
-            product1Title = 
+            titleProductModal = _blousePage.GetProductTitleModal();
         }
 
         [Given(@"the Continue_shopping bttn is clicked")]
@@ -131,7 +133,7 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"two product displayed correctly")]
         public void ThenTwoProductDisplayedCorrectly()
         {
-            var titleProductCart1 = _cartPage.Get1ProductTitleOnCartPage();
+            /*var titleProductCart1 = _cartPage.Get1ProductTitleOnCartPage();
             var titleProductCart2 = _cartPage.Get2ProductTitleOnCartPage();
 
             var colorProductCart1 = _cartPage.Get1ProductColorCartPage();
@@ -143,8 +145,10 @@ namespace AutoTestSpec.StepDefinitions
             var qtyProduct1 = _cartPage.Get1ProductQtyCardPage();
             var qtyProduct2 = _cartPage.Get2ProductQtyCardPage();
 
-            var generalPrice = _cartPage.GetTotalProductsCartPage();
-
+            var generalPrice = _cartPage.GetTotalProductsCartPage();*/
+            var titleProductCart1 = _cartPage.Get1ProductTitleOnCartPage();
+            StringAssert.IsMatch(titleProductCart1, titleProduct);
+            /*Console.WriteLine("1{0} 2{1} 3{2}", titleProductCart1, titleProductModal, titleProduct);*/
 
 
 
