@@ -60,6 +60,10 @@ namespace AutoTestTasks.Pages
         }
         public string GetProductTitleModal() => titleProductModal.Text;
         public string GetProductTitle() => titleProductPage.Text;
+        public string GetProductColor() => colorProductModal.Text;
+        public string GetProductPrice() => priceProductPage.Text;
+        public string GetProductQty() => qtyProductModal.Text;
+        public string GetProductTotal() => totalProductModal.Text;
 
     }
 }
