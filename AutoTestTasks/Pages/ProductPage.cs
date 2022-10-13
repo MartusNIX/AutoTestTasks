@@ -37,6 +37,8 @@ namespace AutoTestTasks.Pages
         public IWebElement qtyProductModal => driver.FindElement(By.Id("layer_cart_product_quantity"));
         public IWebElement totalProductModal => driver.FindElement(By.Id("layer_cart_product_price"));
 
+        public IWebElement colorAndSize => driver.FindElement(By.XPath("//*[@id='layer_cart_product_attributes']"));
+
         public void ClearPreviousDataFromSearch() => searchField.Clear();
         public void ClearPreviousDataFromQuantity() => insertQuantityField.Clear();
         public void InsertWordInInputField(string text) => insertQuantityField.SendKeys(text);
@@ -59,6 +61,9 @@ namespace AutoTestTasks.Pages
         public string GetProductPrice() => priceProductPage.Text;
         public string GetProductQty() => qtyProductModal.Text;
         public string GetProductTotal() => totalProductModal.Text;
+
+        public string GetColorSize() => colorAndSize.Text;
+        
 
     }
 }

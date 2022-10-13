@@ -28,6 +28,8 @@ namespace AutoTestSpec.StepDefinitions
         private string total1Product;
         private string total2Product;
 
+        string colorSize;
+
         public SearchSteps(BrowserDrivers browserDrivers)
         {
             _homePage = new HomePage(browserDrivers.Current);
@@ -208,15 +210,17 @@ namespace AutoTestSpec.StepDefinitions
 
             title2Product = _productPage.GetProductTitle();
             price2Product = _productPage.GetProductPrice();
+
         }
 
-        [When(@"the Proceed_to_checkout is clicked")]
+        [When(@"the user clicks the Proceed_to_checkout btn")]
         public void WhenTheProceed_To_CheckoutIsClicked()
         {
             color2Product = _productPage.GetProductColor();
             qty2Product = _productPage.GetProductQty();
             total2Product = _productPage.GetProductTotal();
-
+            colorSize = _productPage.GetColorSize();
+            Console.WriteLine(colorSize, color2Product, qty2Product, total2Product);
             _productPage.ClickCheckoutBtn();
         }
 
@@ -233,7 +237,7 @@ namespace AutoTestSpec.StepDefinitions
             var colorProductCart1 = _cartPage.Get1ProductColorCartPage();
             Console.WriteLine("Color_cart1= {0} Color_product1= {1}", colorProductCart1, color1Product);
             var colorProductCart2 = _cartPage.Get2ProductColorCartPage();
-            Console.WriteLine("Color_cart2= {0} Color_product2= {1}", colorProductCart2, color2Product);
+            Console.WriteLine("Color_cart2= {0} Color_product2= {1}", colorProductCart2, /*color2Product*/colorSize);
 
             var priceProductCart1 = _cartPage.Get1PriceProductPriceOnCartPage();
             Console.WriteLine("Price_cart1= {0} Price_product1= {1}", priceProductCart1, price1Product);
@@ -251,5 +255,24 @@ namespace AutoTestSpec.StepDefinitions
             Console.WriteLine("Total_cart2= {0} Total_product2= {1}", totalPrice2, total2Product);
 
         }
+
+        [Given(@"the Proceed_to_checkout is clicked")]
+        public void GivenTheProceed_To_CheckoutIsClicked()
+        {
+            _productPage.ClickCheckoutBtn();
+        }
+
+        [When(@"the user clicks Delete btn")]
+        public void WhenTheUserClicksDeleteBtn()
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"the chosen product is deleted")]
+        public void ThenTheChosenProductIsDeleted()
+        {
+            throw new PendingStepException();
+        }
+
     }
 }

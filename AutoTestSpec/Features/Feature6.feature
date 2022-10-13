@@ -1,9 +1,9 @@
-﻿Feature: Feature5
+﻿Feature: Feature6
 
-Searching and open specified product, pick amount, size, color, add to cart and check.
+Searching and open 2 products, pick amount, size, color and add to cart and delete one.
 
-@Browser_Chrome
-Scenario: Checkout 2 product
+@tag1
+Scenario: Deleate one product
 	Given the browser is opened on the main page
 		And the word <Blouse> is inserted in the search field
 		And the magnifier is clicked
@@ -16,5 +16,6 @@ Scenario: Checkout 2 product
 		And the More bttn is clicked
 		And the properties for second product is checked
 		And The Add_to_cart button clicked
-	When the user clicks the Proceed_to_checkout btn
-	Then two product displayed correctly
+		And the Proceed_to_checkout is clicked
+	When the user clicks Delete btn
+	Then the chosen product is deleted
