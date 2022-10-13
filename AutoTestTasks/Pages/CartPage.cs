@@ -40,8 +40,8 @@ namespace AutoTestTasks.Pages
         public string Get2ProductColorCartPage() => colorSecondProductOnCartPage.Text;
         public string Get1ProductSizeCartPage() => sizeFirstProductOnCartPage.Text;
         public string Get2ProductSizeCartPage() => sizeSecondProductOnCartPage.Text;
-        public string Get1ProductQtyCardPage() => qtyFirstProductOnCartPage.Text;
-        public string Get2ProductQtyCardPage() => qtySecondProductOnCartPage.Text;
+        public string Get1ProductQtyCardPage() => qtyFirstProductOnCartPage.GetAttribute("value");
+        public string Get2ProductQtyCardPage() => qtySecondProductOnCartPage.GetAttribute("value");
         public string GetTotal1ProductCartPage() => total1ProductOnCartPage.Text;
         public string GetTotal2ProductCartPage() => total2ProductOnCartPage.Text;
         public string GetTotalProductsCartPage() => totalProductsOnCartPage.Text;

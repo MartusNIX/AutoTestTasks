@@ -138,10 +138,11 @@ namespace AutoTestSpec.StepDefinitions
         [When(@"the Proceed_to_checkout is clicked")]
         public void WhenTheProceed_To_CheckoutIsClicked()
         {
-            _blousePage.ClickCheckoutBtn();
             color2Product = _blousePage.GetProductColor();
             qty2Product = _blousePage.GetProductQty();
             total2Product = _blousePage.GetProductTotal();
+
+            _blousePage.ClickCheckoutBtn();
         }
 
         [Then(@"two product displayed correctly")]
@@ -149,30 +150,30 @@ namespace AutoTestSpec.StepDefinitions
         {
             var titleProductCart1 = _cartPage.Get1ProductTitleOnCartPage();
             StringAssert.IsMatch(titleProductCart1, title1Product);
-            Console.WriteLine("1:{0} 2:{1}", titleProductCart1, title1Product);
+            Console.WriteLine("Title_cart1= {0} Title_product1= {1}", titleProductCart1, title1Product);
             var titleProductCart2 = _cartPage.Get2ProductTitleOnCartPage();
-            Console.WriteLine("1:{0} 2:{1}", titleProductCart2, title2Product);
+            Console.WriteLine("Title_cart2= {0} Title_product2= {1}", titleProductCart2, title2Product);
             StringAssert.IsMatch(titleProductCart2, title2Product);
 
             var colorProductCart1 = _cartPage.Get1ProductColorCartPage();
-            Console.WriteLine("1:{0} 2:{1}", colorProductCart1, color1Product);
+            Console.WriteLine("Color_cart1= {0} Color_product1= {1}", colorProductCart1, color1Product);
             var colorProductCart2 = _cartPage.Get2ProductColorCartPage();
-            Console.WriteLine("1:{0} 2:{1}", colorProductCart2, color2Product);
+            Console.WriteLine("Color_cart2= {0} Color_product2= {1}", colorProductCart2, color2Product);
 
             var priceProductCart1 = _cartPage.Get1PriceProductPriceOnCartPage();
-            Console.WriteLine("1:{0} 2:{1}", priceProductCart1, price1Product);
+            Console.WriteLine("Price_cart1= {0} Price_product1= {1}", priceProductCart1, price1Product);
             var priceProductCart2 = _cartPage.Get2PriceProductOnCartPage();
-            Console.WriteLine("1:{0} 2:{1}", priceProductCart2, price2Product);
+            Console.WriteLine("Price_cart2= {0} Price_product2= {1}", priceProductCart2, price2Product);
 
             var qtyProduct1 = _cartPage.Get1ProductQtyCardPage();
-            Console.WriteLine("1:{0} 2:{1}", qtyProduct1, qty1Product);
+            Console.WriteLine("QTY_cart1= {0} QTY_product1= {1}", qtyProduct1, qty1Product);
             var qtyProduct2 = _cartPage.Get2ProductQtyCardPage();
-            Console.WriteLine("1:{0} 2:{1}", qtyProduct2, qty2Product);
+            Console.WriteLine("QTY_cart2= {0} QTY_product2= {1}", qtyProduct2, qty2Product);
 
             var totalPrice1 = _cartPage.GetTotal1ProductCartPage();
-            Console.WriteLine("1:{0} 2:{1}", totalPrice1, total1Product);
+            Console.WriteLine("Total_cart1= {0} Total_product1= {1}", totalPrice1, total1Product);
             var totalPrice2 = _cartPage.GetTotal2ProductCartPage();
-            Console.WriteLine("1:{0} 2:{1}", totalPrice2, total2Product);
+            Console.WriteLine("Total_cart2= {0} Total_product2= {1}", totalPrice2, total2Product);
 
         }
     }
