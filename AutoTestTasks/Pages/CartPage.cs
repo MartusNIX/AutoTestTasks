@@ -29,7 +29,8 @@ namespace AutoTestTasks.Pages
         public IWebElement qtySecondProductOnCartPage => driver.FindElement(By.CssSelector("tbody>tr:nth-child(2)>td:nth-child(5)>input:nth-child(2)"));
         public IWebElement total1ProductOnCartPage => driver.FindElement(By.CssSelector("tbody>tr:nth-child(1)>td:nth-child(6)>span"));
         public IWebElement total2ProductOnCartPage => driver.FindElement(By.CssSelector("tbody>tr:nth-child(2)>td:nth-child(6)>span"));
-
+        public IWebElement btnDelete => driver.FindElement(By.CssSelector("tbody>tr:nth-child(2)>td:nth-child(7)>div>a"));
+        public IWebElement iD2 => driver.FindElement(By.CssSelector("tbody>tr:nth-child(2)"));
         public string Get1ProductTitleOnCartPage() => titleFirstProductOnCartPage.Text;
         public string Get2ProductTitleOnCartPage() => titleSecondProductOnCartPage.Text;
         public string Get1PriceProductPriceOnCartPage() => priceFirstProductOnCartPage.Text;
@@ -42,5 +43,7 @@ namespace AutoTestTasks.Pages
         public string Get2ProductQtyCardPage() => qtySecondProductOnCartPage.GetAttribute("value");
         public string GetTotal1ProductCartPage() => total1ProductOnCartPage.Text;
         public string GetTotal2ProductCartPage() => total2ProductOnCartPage.Text;
+        public void ClickOnDelete() => btnDelete.Click();
+        public string Get2ProductID() => iD2.GetAttribute("id");
     }
 }

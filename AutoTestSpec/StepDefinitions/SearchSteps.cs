@@ -38,7 +38,7 @@ namespace AutoTestSpec.StepDefinitions
             _productPage = new ProductPage(browserDrivers.Current);
         }
 
-        [Given(@"the browser is opened on the main page")]
+        [Given(@"the browser is opened on the home page")]
         public void GivenTheBrowserIsOpenedOnTheMainPage()
         {
             var expectedTitle = "My Store";
@@ -188,16 +188,10 @@ namespace AutoTestSpec.StepDefinitions
             _productPage.InsertWordInSearchfield("Printed summer dress");
         }
 
-        [Given(@"The magnifier is Clicked on product page")]
+        [Given(@"the magnifier is clicked on the product page")]
         public void GivenTheMagnifierIsClickedOnProductPage()
         {
             _productPage.ClickSearchBtn();
-        }
-
-        [Given(@"the More bttn is clicked")]
-        public void GivenTheMoreBttnIsClicked()
-        {
-            _resultSearchPage.ClickOnMoreOnResultPage();
         }
 
         [Given(@"the properties for second product is checked")]
@@ -253,7 +247,6 @@ namespace AutoTestSpec.StepDefinitions
             Console.WriteLine("Total_cart1= {0} Total_product1= {1}", totalPrice1, total1Product);
             var totalPrice2 = _cartPage.GetTotal2ProductCartPage();
             Console.WriteLine("Total_cart2= {0} Total_product2= {1}", totalPrice2, total2Product);
-
         }
 
         [Given(@"the Proceed_to_checkout is clicked")]
@@ -265,14 +258,16 @@ namespace AutoTestSpec.StepDefinitions
         [When(@"the user clicks Delete btn")]
         public void WhenTheUserClicksDeleteBtn()
         {
-            throw new PendingStepException();
+            _cartPage.ClickOnDelete();
         }
 
         [Then(@"the chosen product is deleted")]
         public void ThenTheChosenProductIsDeleted()
         {
-            throw new PendingStepException();
+            var secondElement = _cartPage.Get2ProductID();
+            var isSecondElementExist = secondElement != null && secondElement.Length > 0;
+            Assert.IsTrue(isSecondElementExist);
+            Console.WriteLine(secondElement);          
         }
-
     }
 }
