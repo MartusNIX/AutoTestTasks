@@ -45,5 +45,10 @@ namespace AutoTestTasks.Pages
         public string GetTotal2ProductCartPage() => total2ProductOnCartPage.Text;
         public void ClickOnDelete() => btnDelete.Click();
         public string Get2ProductID() => iD2.GetAttribute("id");
+
+        public IList<IWebElement> GetProductsList()
+        {
+            return driver.FindElements(By.CssSelector("tbody>tr"));
+        }
     }
 }

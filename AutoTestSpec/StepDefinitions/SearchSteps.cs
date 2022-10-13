@@ -1,8 +1,10 @@
 using AutoTestSpec.Hooks;
 using AutoTestTasks.Pages;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace AutoTestSpec.StepDefinitions
@@ -264,10 +266,20 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"the chosen product is deleted")]
         public void ThenTheChosenProductIsDeleted()
         {
-            var secondElement = _cartPage.Get2ProductID();
-            var isSecondElementExist = secondElement != null && secondElement.Length > 0;
-            Assert.IsTrue(isSecondElementExist);
-            Console.WriteLine(secondElement);          
+            CollectionAssert.DoesNotContain(_cartPage.GetProductsList(), _cartPage.Get2ProductID());
+            /*CollectionAssert.Contains(_cartPage.GetProductsList(), _cartPage.Get2ProductID());*/
+        }
+
+        [Then(@"the product not displ")]
+        public void ThenTheProductNotDispl()
+        {
+            /*Task.Delay(4000).Wait();*/
+            var list = _cartPage.GetProductsList();
+            Assert.That(list, Has.Member(_cartPage.Get2ProductID()));
+            /*foreach (IWebElement liElement in list)
+            {
+                Console.WriteLine(liElement.GetAttribute("id"));
+            }*/
         }
     }
 }

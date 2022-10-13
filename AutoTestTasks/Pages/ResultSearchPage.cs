@@ -34,7 +34,7 @@ namespace AutoTestTasks.Pages
         public string GetNewProductPrice() => elementPrice1.Text;
         public string GetOldProductPrice() => elementPriceOld1.Text;
         public string GetProductName() => titleFirstProductOnResultPage.Text;
-        public void ClickOnMoreOnResultPage () => btnMoreOnResultPage.Click();//t
+        public void ClickOnMoreOnResultPage () => btnMoreOnResultPage.Click();
 
     }
 }
