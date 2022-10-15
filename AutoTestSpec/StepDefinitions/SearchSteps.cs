@@ -3,8 +3,11 @@ using AutoTestTasks.Pages;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TechTalk.SpecFlow;
 
 namespace AutoTestSpec.StepDefinitions
@@ -29,6 +32,7 @@ namespace AutoTestSpec.StepDefinitions
         private string qty2Product;
         private string total1Product;
         private string total2Product;
+        private string removeProductID;
 
         string colorSize;
 
@@ -260,26 +264,70 @@ namespace AutoTestSpec.StepDefinitions
         [When(@"the user clicks Delete btn")]
         public void WhenTheUserClicksDeleteBtn()
         {
-            _cartPage.ClickOnDelete();
+/*
+            removeProductID = _cartPage.Get2ProductID();
+            removeProductID.
+            Console.WriteLine("removeProductID: {0}", removeProductID);
+            foreach (IWebElement element in _cartPage.GetProductsList())
+            {
+                Console.WriteLine("element before delete: {0}", element);
+            }*/
+            _cartPage.ClickOnDelete2();
+
+            //Thread.Sleep(6000);
+
+
+            /*foreach (var element in _cartPage.GetProductsList())
+            {
+                Console.WriteLine("element after delete: {0}", element);
+            }*/
         }
+
+/*        public static bool IsElementDisplayed(this IWebDriver driver, By element)
+        {
+            if (driver.FindElements(element).Count > 0)
+            {
+                if (driver.FindElement(element).Displayed)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }*/
 
         [Then(@"the chosen product is deleted")]
         public void ThenTheChosenProductIsDeleted()
         {
-            CollectionAssert.DoesNotContain(_cartPage.GetProductsList(), _cartPage.Get2ProductID());
+           
+           /* Console.WriteLine("Get Product List:");
+            foreach (IWebElement element in _cartPage.GetProductsList())
+            {
+                Console.WriteLine("element: {0}", element);
+            }
+            Console.WriteLine("_cartPage.Get2ProductID(): {0}", _cartPage.Get2ProductID());*/
+            //CollectionAssert.DoesNotContain(_cartPage.GetProductsList(), removeProductID);
+            
+            //var isDisplayed = _cartPage.IsDisplayedProduct();
+            //Console.WriteLine("Product is displayed on page {0}", isDisplayed);
+            
             /*CollectionAssert.Contains(_cartPage.GetProductsList(), _cartPage.Get2ProductID());*/
+            var isSecondProductDisplayed = _cartPage.IsSecondProductDisplayed();
+            Console.WriteLine("isSecondProductDisplayed : {0}", isSecondProductDisplayed);
         }
 
-        [Then(@"the product not displ")]
-        public void ThenTheProductNotDispl()
-        {
-            /*Task.Delay(4000).Wait();*/
-            var list = _cartPage.GetProductsList();
-            Assert.That(list, Has.Member(_cartPage.Get2ProductID()));
-            /*foreach (IWebElement liElement in list)
-            {
-                Console.WriteLine(liElement.GetAttribute("id"));
-            }*/
-        }
+        /*        [Then(@"the product not displ")]
+                public void ThenTheProductNotDispl()
+                {
+                    *//*Task.Delay(4000).Wait();*//*
+                    var list = _cartPage.GetProductsList();
+                    Assert.That(list, Has.Member(_cartPage.Get2ProductID()));
+                    *//*foreach (IWebElement liElement in list)
+                    {
+                        Console.WriteLine(liElement.GetAttribute("id"));
+                    }*//*
+                }*/
     }
 }

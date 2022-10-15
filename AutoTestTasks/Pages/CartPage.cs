@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +16,7 @@ namespace AutoTestTasks.Pages
         public CartPage(IWebDriver webDdriver)
         {
             driver = webDdriver;
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
         }
 
         public IWebElement titleFirstProductOnCartPage => driver.FindElement(By.CssSelector("tbody>tr:nth-child(1)>td:nth-child(2)>p"));
@@ -29,8 +31,12 @@ namespace AutoTestTasks.Pages
         public IWebElement qtySecondProductOnCartPage => driver.FindElement(By.CssSelector("tbody>tr:nth-child(2)>td:nth-child(5)>input:nth-child(2)"));
         public IWebElement total1ProductOnCartPage => driver.FindElement(By.CssSelector("tbody>tr:nth-child(1)>td:nth-child(6)>span"));
         public IWebElement total2ProductOnCartPage => driver.FindElement(By.CssSelector("tbody>tr:nth-child(2)>td:nth-child(6)>span"));
-        public IWebElement btnDelete => driver.FindElement(By.CssSelector("tbody>tr:nth-child(2)>td:nth-child(7)>div>a"));
+
+        public By btnDeleteCssSelector = By.CssSelector("tbody>tr:nth-child(2)>td:nth-child(7)>div>a");
+        public IWebElement btnDelete => driver.FindElement(btnDeleteCssSelector);
+        public IWebElement iD1 => driver.FindElement(By.CssSelector("tbody>tr:nth-child(1)"));
         public IWebElement iD2 => driver.FindElement(By.CssSelector("tbody>tr:nth-child(2)"));
+
         public string Get1ProductTitleOnCartPage() => titleFirstProductOnCartPage.Text;
         public string Get2ProductTitleOnCartPage() => titleSecondProductOnCartPage.Text;
         public string Get1PriceProductPriceOnCartPage() => priceFirstProductOnCartPage.Text;
@@ -44,7 +50,28 @@ namespace AutoTestTasks.Pages
         public string GetTotal1ProductCartPage() => total1ProductOnCartPage.Text;
         public string GetTotal2ProductCartPage() => total2ProductOnCartPage.Text;
         public void ClickOnDelete() => btnDelete.Click();
+
+        public void ClickOnDelete2()
+        {
+            btnDelete.Click();
+            var wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
+            wait.Until(ExpectedConditions.InvisibilityOfElementLocated(btnDeleteCssSelector));
+        }
+        public string Get1ProductID() => iD1.GetAttribute("id");
         public string Get2ProductID() => iD2.GetAttribute("id");
+        public bool IsDisplayedProduct() => driver.FindElement(By.CssSelector("tbody>tr:nth-child(2)")).Displayed;
+
+        public bool IsSecondProductDisplayed()
+        {
+            try
+            {
+                return iD2.Displayed;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public IList<IWebElement> GetProductsList()
         {

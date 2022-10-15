@@ -138,9 +138,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 21
  testRunner.Then("the chosen product is deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 22
- testRunner.Then("the product not displ", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
             }
             this.ScenarioCleanup();
         }

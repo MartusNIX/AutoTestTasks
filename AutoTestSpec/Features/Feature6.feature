@@ -19,4 +19,4 @@ Scenario: Deleate one product
 		And the Proceed_to_checkout is clicked
 	When the user clicks Delete btn
 	Then the chosen product is deleted
-	Then the product not displ
+
