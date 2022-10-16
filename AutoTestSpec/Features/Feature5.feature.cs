@@ -109,10 +109,10 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the product properties are set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
-  testRunner.And("The Add_to_cart button clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Add_to_cart btn is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
-  testRunner.And("the Continue_shopping bttn is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Continue_shopping btn is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
   testRunner.And("the Printed_summer_dress is inserted in search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -127,7 +127,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the properties for second product is checked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 18
-  testRunner.And("The Add_to_cart button clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Add_to_cart btn is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 19
  testRunner.When("the user clicks the Proceed_to_checkout btn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

@@ -159,7 +159,7 @@ namespace AutoTestSpec.StepDefinitions
             Assert.AreEqual(titleProductCartPage, productName);
         }
 
-        [Given(@"The Add_to_cart button clicked")]
+        [Given(@"the Add_to_cart btn is clicked")]
         public void GivenTheAdd_To_CartButtonClicked()
         {
             _productPage.ClickAddToCardBtn();
@@ -178,13 +178,13 @@ namespace AutoTestSpec.StepDefinitions
             Assert.True(actualResult);
         }
 
-        [Given(@"the Continue_shopping bttn is clicked")]
+        [Given(@"the Continue_shopping btn is clicked")]
         public void GivenTheContinue_ShoppingBttnIsClicked()
         {
             _productPage.ClickContinueShoppingBtn();
             color1Product = _productPage.GetProductColor();
             qty1Product = _productPage.GetProductQty();
-            total1Product = _productPage.GetProductTotal();
+            total1Product = _productPage.GetProductTotal();         
         }
 
         [Given(@"the Printed_summer_dress is inserted in search")]
@@ -214,13 +214,16 @@ namespace AutoTestSpec.StepDefinitions
         }
 
         [When(@"the user clicks the Proceed_to_checkout btn")]
-        public void WhenTheProceed_To_CheckoutIsClicked()
+        public void WhenTheUserClicksTheProceed_To_CheckoutBtn()
         {
+            //Thread.Sleep(4000);
+            Task.Delay(4000).Wait();
             color2Product = _productPage.GetProductColor();
             qty2Product = _productPage.GetProductQty();
             total2Product = _productPage.GetProductTotal();
             colorSize = _productPage.GetColorSize();
             Console.WriteLine(colorSize, color2Product, qty2Product, total2Product);
+
             _productPage.ClickCheckoutBtn();
         }
 
@@ -237,7 +240,7 @@ namespace AutoTestSpec.StepDefinitions
             var colorProductCart1 = _cartPage.Get1ProductColorCartPage();
             Console.WriteLine("Color_cart1= {0} Color_product1= {1}", colorProductCart1, color1Product);
             var colorProductCart2 = _cartPage.Get2ProductColorCartPage();
-            Console.WriteLine("Color_cart2= {0} Color_product2= {1}", colorProductCart2, /*color2Product*/colorSize);
+            Console.WriteLine("Color_cart2= {0} Color_product2= {1}", colorProductCart2, color2Product/*colorSize*/);
 
             var priceProductCart1 = _cartPage.Get1PriceProductPriceOnCartPage();
             Console.WriteLine("Price_cart1= {0} Price_product1= {1}", priceProductCart1, price1Product);

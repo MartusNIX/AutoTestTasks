@@ -9,12 +9,12 @@ Scenario: Checkout 2 product
 		And the magnifier is clicked
 		And the first displayed product is opened
 		And the product properties are set
-		And The Add_to_cart button clicked
-		And the Continue_shopping bttn is clicked
+		And the Add_to_cart btn is clicked
+		And the Continue_shopping btn is clicked
 		And the Printed_summer_dress is inserted in search
 		And the magnifier is clicked on the product page
 		And the first displayed product is opened
 		And the properties for second product is checked
-		And The Add_to_cart button clicked
+		And the Add_to_cart btn is clicked
 	When the user clicks the Proceed_to_checkout btn
 	Then two product displayed correctly

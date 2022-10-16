@@ -7,6 +7,10 @@ namespace AutoTestSpec.Hooks
 {
     public class BrowserDriverFactory
     {
+        public BrowserDriverFactory()
+        {
+
+        }
         public IWebDriver GetWebDriver(string browserId)
         {
             switch (browserId)
