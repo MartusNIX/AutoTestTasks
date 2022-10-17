@@ -24,17 +24,19 @@ namespace AutoTestSpec.StepDefinitions
         private string productName;
         private string title1Product;
         private string title2Product;
-        private string color1Product;
-        private string color2Product;
+        private string colorSize1ProductModal;
+        private string colorSize2ProductModal;
         private string price1Product;
         private string price2Product;
         private string qty1Product;
         private string qty2Product;
         private string total1Product;
         private string total2Product;
+        private string color1Product;
+        private string color2Product;
+        private string size1Product;
+        private string size2Product;
         private string removeProductID;
-
-        string colorSize;
 
         public SearchSteps(BrowserDrivers browserDrivers)
         {
@@ -83,9 +85,11 @@ namespace AutoTestSpec.StepDefinitions
             _productPage.InsertWordInInputField("3");
             _productPage.SelectLargeSize();
             _productPage.SelectBlackColor();
-
+            Thread.Sleep(4000);
             title1Product = _productPage.GetProductTitle();
             price1Product = _productPage.GetProductPrice();
+            color1Product = _productPage.GetChosedColor();
+            size1Product = _productPage.GetChosedSize();
         }
 
         [When(@"the user clicks on the magnifier")]
@@ -182,9 +186,9 @@ namespace AutoTestSpec.StepDefinitions
         public void GivenTheContinue_ShoppingBttnIsClicked()
         {
             _productPage.ClickContinueShoppingBtn();
-            color1Product = _productPage.GetProductColor();
+            colorSize1ProductModal = _productPage.GetProductColorSizeOnModal();
             qty1Product = _productPage.GetProductQty();
-            total1Product = _productPage.GetProductTotal();         
+            total1Product = _productPage.GetProductTotal();
         }
 
         [Given(@"the Printed_summer_dress is inserted in search")]
@@ -210,26 +214,40 @@ namespace AutoTestSpec.StepDefinitions
 
             title2Product = _productPage.GetProductTitle();
             price2Product = _productPage.GetProductPrice();
+            color2Product = _productPage.GetChosedColor();
+            size2Product = _productPage.GetChosedSize();
 
         }
 
         [When(@"the user clicks the Proceed_to_checkout btn")]
         public void WhenTheUserClicksTheProceed_To_CheckoutBtn()
         {
-            //Thread.Sleep(4000);
+            
+            Thread.Sleep(4000);
             Task.Delay(4000).Wait();
-            color2Product = _productPage.GetProductColor();
+            colorSize2ProductModal = _productPage.GetProductColorSizeOnModal();
             qty2Product = _productPage.GetProductQty();
             total2Product = _productPage.GetProductTotal();
-            colorSize = _productPage.GetColorSize();
-            Console.WriteLine(colorSize, color2Product, qty2Product, total2Product);
-
             _productPage.ClickCheckoutBtn();
         }
 
         [Then(@"two product displayed correctly")]
         public void ThenTwoProductDisplayedCorrectly()
         {
+            var colorProductCart1 = _cartPage.Get1ProductColorCartPage();
+            StringAssert.Contains(color1Product, colorProductCart1);
+            Console.WriteLine("Color_cart1= {0} Color_product1= {1}", colorProductCart1, color1Product);
+            var colorProductCart2 = _cartPage.Get2ProductColorCartPage();
+            StringAssert.Contains(color2Product, colorProductCart2);
+            Console.WriteLine("Color_cart2= {0} Color_product2= {1}", colorProductCart2, color2Product);
+
+            var sizeProductCart1 = _cartPage.Get1ProductSizeCartPage();
+            StringAssert.Contains(size1Product, sizeProductCart1);
+            Console.WriteLine("Size_cart1= {0} Size_product1= {1}", sizeProductCart1, size1Product);
+            var sizeProductCart2 = _cartPage.Get2ProductSizeCartPage();
+            StringAssert.Contains(size2Product, sizeProductCart2);
+            Console.WriteLine("Size_cart2= {0} Size_product2= {1}", sizeProductCart2, size2Product);
+
             var titleProductCart1 = _cartPage.Get1ProductTitleOnCartPage();
             StringAssert.IsMatch(titleProductCart1, title1Product);
             Console.WriteLine("Title_cart1= {0} Title_product1= {1}", titleProductCart1, title1Product);
@@ -237,25 +255,36 @@ namespace AutoTestSpec.StepDefinitions
             Console.WriteLine("Title_cart2= {0} Title_product2= {1}", titleProductCart2, title2Product);
             StringAssert.IsMatch(titleProductCart2, title2Product);
 
-            var colorProductCart1 = _cartPage.Get1ProductColorCartPage();
-            Console.WriteLine("Color_cart1= {0} Color_product1= {1}", colorProductCart1, color1Product);
-            var colorProductCart2 = _cartPage.Get2ProductColorCartPage();
-            Console.WriteLine("Color_cart2= {0} Color_product2= {1}", colorProductCart2, color2Product/*colorSize*/);
-
-            var priceProductCart1 = _cartPage.Get1PriceProductPriceOnCartPage();
-            Console.WriteLine("Price_cart1= {0} Price_product1= {1}", priceProductCart1, price1Product);
-            var priceProductCart2 = _cartPage.Get2PriceProductOnCartPage();
-            Console.WriteLine("Price_cart2= {0} Price_product2= {1}", priceProductCart2, price2Product);
-
             var qtyProduct1 = _cartPage.Get1ProductQtyCardPage();
+            StringAssert.IsMatch(qtyProduct1, qty1Product);
             Console.WriteLine("QTY_cart1= {0} QTY_product1= {1}", qtyProduct1, qty1Product);
             var qtyProduct2 = _cartPage.Get2ProductQtyCardPage();
+            StringAssert.IsMatch(qtyProduct2, qty2Product);
             Console.WriteLine("QTY_cart2= {0} QTY_product2= {1}", qtyProduct2, qty2Product);
 
+            char[] toTrim = { '$', ' ' };
+
             var totalPrice1 = _cartPage.GetTotal1ProductCartPage();
-            Console.WriteLine("Total_cart1= {0} Total_product1= {1}", totalPrice1, total1Product);
+            string trimedTotalPriceCart1 = totalPrice1.Trim(toTrim);
+            string trimedTotalProduct1 = total1Product.Trim(toTrim);
+            Console.WriteLine("Total_cart1= {0} Total_product1= {1}", trimedTotalPriceCart1, trimedTotalProduct1);
+            StringAssert.IsMatch(trimedTotalPriceCart1, trimedTotalProduct1);
             var totalPrice2 = _cartPage.GetTotal2ProductCartPage();
-            Console.WriteLine("Total_cart2= {0} Total_product2= {1}", totalPrice2, total2Product);
+            string trimedTotalPriceCart2 = totalPrice2.Trim(toTrim);
+            string trimedTotalProduct2 = total2Product.Trim(toTrim);
+            Console.WriteLine("Total_cart2= {0} Total_product2= {1}", trimedTotalPriceCart2, trimedTotalProduct2);
+            StringAssert.IsMatch(trimedTotalPriceCart2, trimedTotalProduct2);
+
+            var priceProductCart1 = _cartPage.Get1PriceProductPriceOnCartPage();
+            string trimedUnitPriceCart1 = priceProductCart1.Trim(toTrim);
+            string trimedUnitPriceProduct1 = price1Product.Trim(toTrim);
+            StringAssert.IsMatch(trimedUnitPriceCart1, trimedUnitPriceProduct1);
+            Console.WriteLine("Price_cart1= {0} Price_product1= {1}", trimedUnitPriceCart1, trimedUnitPriceProduct1);
+            var priceProductCart2 = _cartPage.Get2PriceProductOnCartPage();
+            string trimedUnitPriceCart2 = priceProductCart2.Trim(toTrim);
+            string trimedUnitPriceProduct2 = price2Product.Trim(toTrim);
+            StringAssert.IsMatch(trimedUnitPriceCart2, trimedUnitPriceProduct2);
+            Console.WriteLine("Price_cart2= {0} Price_product2= {1}", trimedUnitPriceCart2, trimedUnitPriceProduct2);
         }
 
         [Given(@"the Proceed_to_checkout is clicked")]
@@ -267,70 +296,14 @@ namespace AutoTestSpec.StepDefinitions
         [When(@"the user clicks Delete btn")]
         public void WhenTheUserClicksDeleteBtn()
         {
-/*
-            removeProductID = _cartPage.Get2ProductID();
-            removeProductID.
-            Console.WriteLine("removeProductID: {0}", removeProductID);
-            foreach (IWebElement element in _cartPage.GetProductsList())
-            {
-                Console.WriteLine("element before delete: {0}", element);
-            }*/
             _cartPage.ClickOnDelete2();
-
-            //Thread.Sleep(6000);
-
-
-            /*foreach (var element in _cartPage.GetProductsList())
-            {
-                Console.WriteLine("element after delete: {0}", element);
-            }*/
         }
-
-/*        public static bool IsElementDisplayed(this IWebDriver driver, By element)
-        {
-            if (driver.FindElements(element).Count > 0)
-            {
-                if (driver.FindElement(element).Displayed)
-                    return true;
-                else
-                    return false;
-            }
-            else
-            {
-                return false;
-            }
-        }*/
 
         [Then(@"the chosen product is deleted")]
         public void ThenTheChosenProductIsDeleted()
         {
-           
-           /* Console.WriteLine("Get Product List:");
-            foreach (IWebElement element in _cartPage.GetProductsList())
-            {
-                Console.WriteLine("element: {0}", element);
-            }
-            Console.WriteLine("_cartPage.Get2ProductID(): {0}", _cartPage.Get2ProductID());*/
-            //CollectionAssert.DoesNotContain(_cartPage.GetProductsList(), removeProductID);
-            
-            //var isDisplayed = _cartPage.IsDisplayedProduct();
-            //Console.WriteLine("Product is displayed on page {0}", isDisplayed);
-            
-            /*CollectionAssert.Contains(_cartPage.GetProductsList(), _cartPage.Get2ProductID());*/
             var isSecondProductDisplayed = _cartPage.IsSecondProductDisplayed();
             Console.WriteLine("isSecondProductDisplayed : {0}", isSecondProductDisplayed);
         }
-
-        /*        [Then(@"the product not displ")]
-                public void ThenTheProductNotDispl()
-                {
-                    *//*Task.Delay(4000).Wait();*//*
-                    var list = _cartPage.GetProductsList();
-                    Assert.That(list, Has.Member(_cartPage.Get2ProductID()));
-                    *//*foreach (IWebElement liElement in list)
-                    {
-                        Console.WriteLine(liElement.GetAttribute("id"));
-                    }*//*
-                }*/
     }
 }

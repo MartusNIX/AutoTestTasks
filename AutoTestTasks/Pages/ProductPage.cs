@@ -29,10 +29,13 @@ namespace AutoTestTasks.Pages
         public IWebElement searchBtn => driver.FindElement(By.Name("submit_search"));
         public IWebElement priceProductPage => driver.FindElement(By.CssSelector("span[id='our_price_display']"));
         public IWebElement titleProductPage => driver.FindElement(By.CssSelector("h1[itemprop='name']"));
+        public IWebElement colorSelected => driver.FindElement(By.CssSelector("#color_to_pick_list > li.selected>a"));
+        public IWebElement sizeSelected => driver.FindElement(By.CssSelector("#uniform-group_1 > span"));
+        
 
         public IWebElement btnContinueShopping => driver.FindElement(By.CssSelector("span[title = 'Continue shopping']"));
         public IWebElement btnCheckout => driver.FindElement(By.CssSelector("a[title = 'Proceed to checkout']"));
-        public IWebElement colorProductModal => driver.FindElement(By.Id("layer_cart_product_attributes"));
+        public IWebElement colorSizeProductModal => driver.FindElement(By.Id("layer_cart_product_attributes"));
         public IWebElement sizeProductModal => driver.FindElement(By.Id("layer_cart_product_attributes"));
         public IWebElement qtyProductModal => driver.FindElement(By.Id("layer_cart_product_quantity"));
         public IWebElement totalProductModal => driver.FindElement(By.Id("layer_cart_product_price"));
@@ -57,12 +60,12 @@ namespace AutoTestTasks.Pages
             return driver.FindElement(By.CssSelector("#layer_cart > div.clearfix")).Enabled;
         }
         public string GetProductTitle() => titleProductPage.Text;
-        public string GetProductColor() => colorProductModal.Text;
+        public string GetProductColorSizeOnModal() => colorSizeProductModal.Text;
         public string GetProductPrice() => priceProductPage.Text;
         public string GetProductQty() => qtyProductModal.Text;
         public string GetProductTotal() => totalProductModal.Text;
-
-        public string GetColorSize() => colorAndSize.Text;
+        public string GetChosedColor() => colorSelected.GetAttribute("name");
+        public string GetChosedSize() => sizeSelected.Text;
         
 
     }
