@@ -19,6 +19,6 @@ namespace AutoTestTasks.Pages
         public string pageTitle => driver.Title;
 
         public void InsertWordInSearchfield(string text) => searchField.SendKeys(text);
-        public void ClickSearchBtn() => searchBtn.Click();
+        public void ClickSearchBtnOnSearchPage() => searchBtn.Click();
     }
 }

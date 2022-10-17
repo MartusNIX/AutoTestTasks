@@ -3,13 +3,9 @@
 Checking the price sorting downgrade after searching required word.
 
 @Browser_Edge
-Scenario: 2. Checking the price sorting downgrade using browser - Edge
-	Given The browser is opened on the Main page
-	Given The word is inserted in Search field <Entered word>
-	Given The magnifier is clicked
-	When The user pressed sorting price by downgrade
-	Then The elements are displayed sorted 
-
-		Examples: 
-	| Entered word | Expected heder word |
-	| Summer       | SUMMER              |
+Scenario: 2. Checking the price sorting downgrade
+	Given the browser is opened on the home page
+		And the word <Summer> is inserted in the search field
+		And the magnifier is clicked
+	When the user pressed sorting price by downgrade
+	Then the elements are displayed sorted

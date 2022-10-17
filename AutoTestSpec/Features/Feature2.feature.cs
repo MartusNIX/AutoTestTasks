@@ -74,22 +74,14 @@ namespace AutoTestSpec.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("2. Checking the price sorting downgrade using browser - Edge")]
+        [NUnit.Framework.DescriptionAttribute("2. Checking the price sorting downgrade")]
         [NUnit.Framework.CategoryAttribute("Browser_Edge")]
-        [NUnit.Framework.TestCaseAttribute("Summer", "SUMMER", null)]
-        public void _2_CheckingThePriceSortingDowngradeUsingBrowser_Edge(string enteredWord, string expectedHederWord, string[] exampleTags)
+        public void _2_CheckingThePriceSortingDowngrade()
         {
-            string[] @__tags = new string[] {
+            string[] tagsOfScenario = new string[] {
                     "Browser_Edge"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Entered word", enteredWord);
-            argumentsOfScenario.Add("Expected heder word", expectedHederWord);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2. Checking the price sorting downgrade using browser - Edge", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2. Checking the price sorting downgrade", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -101,19 +93,19 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("The browser is opened on the Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("the browser is opened on the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.Given(string.Format("The word is inserted in Search field {0}", enteredWord), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  testRunner.And("the word <Summer> is inserted in the search field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
- testRunner.Given("The magnifier is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  testRunner.And("the magnifier is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
- testRunner.When("The user pressed sorting price by downgrade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the user pressed sorting price by downgrade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
- testRunner.Then("The elements are displayed sorted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the elements are displayed sorted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
