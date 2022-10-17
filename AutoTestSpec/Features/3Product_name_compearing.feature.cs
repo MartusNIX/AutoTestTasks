@@ -112,7 +112,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("the user go to product card page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
- testRunner.Then("the name of product on result page and chart page are equal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the name of product on result page and cart page are equal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

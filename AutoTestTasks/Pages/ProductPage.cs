@@ -1,12 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace AutoTestTasks.Pages
 {
@@ -32,14 +24,12 @@ namespace AutoTestTasks.Pages
         public IWebElement colorSelected => driver.FindElement(By.CssSelector("#color_to_pick_list > li.selected>a"));
         public IWebElement sizeSelected => driver.FindElement(By.CssSelector("#uniform-group_1 > span"));
         
-
         public IWebElement btnContinueShopping => driver.FindElement(By.CssSelector("span[title = 'Continue shopping']"));
         public IWebElement btnCheckout => driver.FindElement(By.CssSelector("a[title = 'Proceed to checkout']"));
         public IWebElement colorSizeProductModal => driver.FindElement(By.Id("layer_cart_product_attributes"));
         public IWebElement sizeProductModal => driver.FindElement(By.Id("layer_cart_product_attributes"));
         public IWebElement qtyProductModal => driver.FindElement(By.Id("layer_cart_product_quantity"));
         public IWebElement totalProductModal => driver.FindElement(By.Id("layer_cart_product_price"));
-
         public IWebElement colorAndSize => driver.FindElement(By.XPath("//*[@id='layer_cart_product_attributes']"));
 
         public void ClearPreviousDataFromSearch() => searchField.Clear();
@@ -54,7 +44,6 @@ namespace AutoTestTasks.Pages
         public void ClickContinueShoppingBtn() => btnContinueShopping.Click();
         public void ClickCheckoutBtn() => btnCheckout.Click();
         public void ClickSearchBtn() => searchBtn.Click();
-
         public bool ModalWindowIsShown()
         {
             return driver.FindElement(By.CssSelector("#layer_cart > div.clearfix")).Enabled;
@@ -66,7 +55,5 @@ namespace AutoTestTasks.Pages
         public string GetProductTotal() => totalProductModal.Text;
         public string GetChosedColor() => colorSelected.GetAttribute("name");
         public string GetChosedSize() => sizeSelected.Text;
-        
-
     }
 }

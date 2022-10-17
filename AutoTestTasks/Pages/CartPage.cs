@@ -1,11 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoTestTasks.Pages
 {
@@ -49,18 +44,16 @@ namespace AutoTestTasks.Pages
         public string Get2ProductQtyCardPage() => qtySecondProductOnCartPage.GetAttribute("value");
         public string GetTotal1ProductCartPage() => total1ProductOnCartPage.Text;
         public string GetTotal2ProductCartPage() => total2ProductOnCartPage.Text;
+        public string Get1ProductID() => iD1.GetAttribute("id");
+        public string Get2ProductID() => iD2.GetAttribute("id");
         public void ClickOnDelete() => btnDelete.Click();
-
         public void ClickOnDelete2()
         {
             btnDelete.Click();
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
             wait.Until(ExpectedConditions.InvisibilityOfElementLocated(btnDeleteCssSelector));
         }
-        public string Get1ProductID() => iD1.GetAttribute("id");
-        public string Get2ProductID() => iD2.GetAttribute("id");
         public bool IsDisplayedProduct() => driver.FindElement(By.CssSelector("tbody>tr:nth-child(2)")).Displayed;
-
         public bool IsSecondProductDisplayed()
         {
             try
@@ -73,9 +66,9 @@ namespace AutoTestTasks.Pages
             }
         }
 
-        public IList<IWebElement> GetProductsList()
+/*        public IList<IWebElement> GetProductsList()
         {
             return driver.FindElements(By.CssSelector("tbody>tr"));
-        }
+        }*/
     }
 }
