@@ -35,13 +35,21 @@ namespace AutoTestTasks.Pages
         public string Get1ProductTitleOnCartPage() => titleFirstProductOnCartPage.Text;
         public string Get2ProductTitleOnCartPage() => titleSecondProductOnCartPage.Text;
         public string Get1PriceProductPriceOnCartPage() => priceFirstProductOnCartPage.Text;
-        public string Get2PriceProductOnCartPage() => priceSecondProductOnCartPage.Text;
+        public string Get2PriceProductPriceOnCartPage() => priceSecondProductOnCartPage.Text;
         public string Get1ProductColorCartPage() => colorFirstProductOnCartPage.Text;
         public string Get2ProductColorCartPage() => colorSecondProductOnCartPage.Text;
         public string Get1ProductSizeCartPage() => sizeFirstProductOnCartPage.Text;
         public string Get2ProductSizeCartPage() => sizeSecondProductOnCartPage.Text;
-        public string Get1ProductQtyCardPage() => qtyFirstProductOnCartPage.GetAttribute("value");
-        public string Get2ProductQtyCardPage() => qtySecondProductOnCartPage.GetAttribute("value");
+        public int Get1ProductQtyCardPage()
+        {
+            var quantityStringValue1 = qtyFirstProductOnCartPage.GetAttribute("value");
+            return int.Parse(quantityStringValue1);
+        }
+        public int Get2ProductQtyCardPage()
+        {
+            var quantityStringValue2 = qtySecondProductOnCartPage.GetAttribute("value");
+            return int.Parse(quantityStringValue2);
+        }
         public string GetTotal1ProductCartPage() => total1ProductOnCartPage.Text;
         public string GetTotal2ProductCartPage() => total2ProductOnCartPage.Text;
         public string Get1ProductID() => iD1.GetAttribute("id");

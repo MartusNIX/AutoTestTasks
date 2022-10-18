@@ -2,6 +2,8 @@ using AutoTestSpec.Hooks;
 using AutoTestTasks.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using AutoTestSpec.Utils;
+using TechTalk.SpecFlow.Assist;
 
 namespace AutoTestSpec.StepDefinitions
 {
@@ -165,60 +167,50 @@ namespace AutoTestSpec.StepDefinitions
             size1Product = _productPage.GetChosedSize();
         }
 
-        [Then(@"two product displayed correctly")]
-        public void ThenTwoProductDisplayedCorrectly()
+        [Then(@"products have following")]
+        public void ThenProductsHaveFollowing(Table table)
         {
+            Paramss paramss = table.CreateInstance<Paramss>();
+
             var colorProductCart1 = _cartPage.Get1ProductColorCartPage();
-            StringAssert.Contains(color1Product, colorProductCart1);
-            Console.WriteLine("Color_cart1= {0} Color_product1= {1}", colorProductCart1, color1Product);
+            StringAssert.Contains(paramss.Color1, colorProductCart1);
             var colorProductCart2 = _cartPage.Get2ProductColorCartPage();
-            StringAssert.Contains(color2Product, colorProductCart2);
-            Console.WriteLine("Color_cart2= {0} Color_product2= {1}", colorProductCart2, color2Product);
+            StringAssert.Contains(paramss.Color2, colorProductCart2);
 
             var sizeProductCart1 = _cartPage.Get1ProductSizeCartPage();
-            StringAssert.Contains(size1Product, sizeProductCart1);
-            Console.WriteLine("Size_cart1= {0} Size_product1= {1}", sizeProductCart1, size1Product);
+            StringAssert.Contains(paramss.Size1, sizeProductCart1);
             var sizeProductCart2 = _cartPage.Get2ProductSizeCartPage();
-            StringAssert.Contains(size2Product, sizeProductCart2);
-            Console.WriteLine("Size_cart2= {0} Size_product2= {1}", sizeProductCart2, size2Product);
+            StringAssert.Contains(paramss.Size2, sizeProductCart2);
 
             var titleProductCart1 = _cartPage.Get1ProductTitleOnCartPage();
-            StringAssert.IsMatch(titleProductCart1, title1Product);
-            Console.WriteLine("Title_cart1= {0} Title_product1= {1}", titleProductCart1, title1Product);
+            StringAssert.IsMatch(paramss.Title1, titleProductCart1);
             var titleProductCart2 = _cartPage.Get2ProductTitleOnCartPage();
-            Console.WriteLine("Title_cart2= {0} Title_product2= {1}", titleProductCart2, title2Product);
-            StringAssert.IsMatch(titleProductCart2, title2Product);
+            StringAssert.IsMatch(paramss.Title2, titleProductCart2);
 
             var qtyProduct1 = _cartPage.Get1ProductQtyCardPage();
-            StringAssert.IsMatch(qtyProduct1, qty1Product);
-            Console.WriteLine("QTY_cart1= {0} QTY_product1= {1}", qtyProduct1, qty1Product);
+            Assert.AreEqual(paramss.QTY1, qtyProduct1);
             var qtyProduct2 = _cartPage.Get2ProductQtyCardPage();
-            StringAssert.IsMatch(qtyProduct2, qty2Product);
-            Console.WriteLine("QTY_cart2= {0} QTY_product2= {1}", qtyProduct2, qty2Product);
+            Assert.AreEqual(paramss.QTY2, qtyProduct2);
 
             char[] toTrim = { '$', ' ' };
 
             var totalPrice1 = _cartPage.GetTotal1ProductCartPage();
             string trimedTotalPriceCart1 = totalPrice1.Trim(toTrim);
-            string trimedTotalProduct1 = total1Product.Trim(toTrim);
-            Console.WriteLine("Total_cart1= {0} Total_product1= {1}", trimedTotalPriceCart1, trimedTotalProduct1);
-            StringAssert.IsMatch(trimedTotalPriceCart1, trimedTotalProduct1);
+            float newTotalPrice1 = float.Parse(trimedTotalPriceCart1);
+            Assert.AreEqual(paramss.TotalPrice1, newTotalPrice1);
             var totalPrice2 = _cartPage.GetTotal2ProductCartPage();
             string trimedTotalPriceCart2 = totalPrice2.Trim(toTrim);
-            string trimedTotalProduct2 = total2Product.Trim(toTrim);
-            Console.WriteLine("Total_cart2= {0} Total_product2= {1}", trimedTotalPriceCart2, trimedTotalProduct2);
-            StringAssert.IsMatch(trimedTotalPriceCart2, trimedTotalProduct2);
+            float newTotalPrice2 = float.Parse(trimedTotalPriceCart2);
+            Assert.AreEqual(paramss.TotalPrice2, newTotalPrice2);
 
             var priceProductCart1 = _cartPage.Get1PriceProductPriceOnCartPage();
             string trimedUnitPriceCart1 = priceProductCart1.Trim(toTrim);
-            string trimedUnitPriceProduct1 = price1Product.Trim(toTrim);
-            StringAssert.IsMatch(trimedUnitPriceCart1, trimedUnitPriceProduct1);
-            Console.WriteLine("Price_cart1= {0} Price_product1= {1}", trimedUnitPriceCart1, trimedUnitPriceProduct1);
-            var priceProductCart2 = _cartPage.Get2PriceProductOnCartPage();
+            float newUnitPrice1=float.Parse(trimedUnitPriceCart1);
+            Assert.AreEqual(paramss.Price1, newUnitPrice1);
+            var priceProductCart2 = _cartPage.Get2PriceProductPriceOnCartPage();
             string trimedUnitPriceCart2 = priceProductCart2.Trim(toTrim);
-            string trimedUnitPriceProduct2 = price2Product.Trim(toTrim);
-            StringAssert.IsMatch(trimedUnitPriceCart2, trimedUnitPriceProduct2);
-            Console.WriteLine("Price_cart2= {0} Price_product2= {1}", trimedUnitPriceCart2, trimedUnitPriceProduct2);
+            float newUnitPrice2 = float.Parse(trimedUnitPriceCart2);
+            Assert.AreEqual(paramss.Price2, newUnitPrice2);
         }
 
         [Given(@"the Proceed_to_checkout is clicked")]

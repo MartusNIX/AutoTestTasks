@@ -36,7 +36,7 @@ namespace AutoTestSpec.Features
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Feature5", "Searching and open specified product, pick amount, size, color, add to cart and c" +
-                    "heck.", ProgrammingLanguage.CSharp, featureTags);
+                    "heck that information is right.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -123,8 +123,47 @@ this.ScenarioInitialize(scenarioInfo);
 #line 16
  testRunner.When("the user clicks the Proceed_to_checkout btn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Parameter",
+                            "Value"});
+                table2.AddRow(new string[] {
+                            "Color1",
+                            "White"});
+                table2.AddRow(new string[] {
+                            "Size1",
+                            "L"});
+                table2.AddRow(new string[] {
+                            "Title1",
+                            "Blouse"});
+                table2.AddRow(new string[] {
+                            "QTY1",
+                            "3"});
+                table2.AddRow(new string[] {
+                            "TotalPrice1",
+                            "81.00"});
+                table2.AddRow(new string[] {
+                            "Price1",
+                            "27.00"});
+                table2.AddRow(new string[] {
+                            "Color2",
+                            "Orange"});
+                table2.AddRow(new string[] {
+                            "Size2",
+                            "M"});
+                table2.AddRow(new string[] {
+                            "Title2",
+                            "Printed Summer Dress"});
+                table2.AddRow(new string[] {
+                            "QTY2",
+                            "5"});
+                table2.AddRow(new string[] {
+                            "TotalPrice2",
+                            "144.90"});
+                table2.AddRow(new string[] {
+                            "Price2",
+                            "28.98"});
 #line 17
- testRunner.Then("two product displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("products have following", ((string)(null)), table2, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
