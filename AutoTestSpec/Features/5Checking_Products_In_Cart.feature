@@ -8,13 +8,10 @@ Scenario: Checkout 2 product
 		And the word <Blouse> is inserted in the search field
 		And the magnifier is clicked
 		And the first displayed product is opened
-		And the product properties are set
-		And the Add_to_cart btn is clicked
-		And the Continue_shopping btn is clicked
+		And the first product added to card
 		And the Printed_summer_dress is inserted in search
 		And the magnifier is clicked on the product page
 		And the first displayed product is opened
-		And the properties for second product is checked
-		And the Add_to_cart btn is clicked
+		And the second product added to card
 	When the user clicks the Proceed_to_checkout btn
 	Then two product displayed correctly

@@ -9,4 +9,4 @@ Scenario: 1. Comparing the searched word with the word that is displayed
 		| Key        | Value  |
 		| SearchWord | Summer |
 	When the user clicks on the magnifier
-	Then the user see the same words in the search field and the search header
+	Then the user sees the same words in the search field and the search header

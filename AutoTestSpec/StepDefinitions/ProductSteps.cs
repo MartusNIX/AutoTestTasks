@@ -35,7 +35,7 @@ namespace AutoTestSpec.StepDefinitions
             _productPage = new ProductPage(browserDrivers.Current);
         }
 
-        [Then(@"the user go to product card page")]
+        [Then(@"the user goes to product card page")]
         public void ThenTheUserGoToProductCardPage()
         {
             productPriceNew = _resultSearchPage.GetNewProductPrice();
@@ -52,23 +52,17 @@ namespace AutoTestSpec.StepDefinitions
             Assert.AreEqual(titleProductCartPage, productName);
         }
 
-        [When(@"the Add_to_cart button is clicked")]
+        [When(@"the user clicks Add_to_cart btn")]
         public void WhenTheAdd_To_CartButtonClicked()
         {
             _productPage.ClickAddToCardBtn();
         }
 
-        [Then(@"the user see that products successfully added to the shopping cart in pop-up")]
+        [Then(@"the user sees that products successfully added to the shopping cart in pop-up")]
         public void ThenTheUserSeeThatProductsSuccessfullyAddedToTheShoppingCartInPop_Up()
         {
             bool actualResult = _productPage.ModalWindowIsShown();
             Assert.True(actualResult);
-        }
-
-        [Given(@"the Add_to_cart btn is clicked")]
-        public void GivenTheAdd_To_CartButtonClicked()
-        {
-            _productPage.ClickAddToCardBtn();
         }
 
         [When(@"the user clicks the Proceed_to_checkout btn")]
@@ -79,6 +73,21 @@ namespace AutoTestSpec.StepDefinitions
             qty2Product = _productPage.GetProductQty();
             total2Product = _productPage.GetProductTotal();
             _productPage.ClickCheckoutBtn();
+        }
+
+        [Given(@"the second product added to card")]
+        public void GivenTheSecondProductAddedToCard()
+        {
+            _productPage.ClearPreviousDataFromQuantity();
+            _productPage.InsertWordInInputField("5");
+            _productPage.SelectMediumSize();
+            _productPage.SelectOrangeColor();
+            Task.Delay(4000).Wait();
+            title2Product = _productPage.GetProductTitle();
+            price2Product = _productPage.GetProductPrice();
+            color2Product = _productPage.GetChosedColor();
+            size2Product = _productPage.GetChosedSize();
+            _productPage.ClickAddToCardBtn();
         }
 
         [Then(@"the elements are displayed sorted")]
@@ -103,40 +112,43 @@ namespace AutoTestSpec.StepDefinitions
             return float.Parse(element.Text.Trim('$'));
         }
 
-        [Given(@"the Continue_shopping btn is clicked")]
-        public void GivenTheContinue_ShoppingBttnIsClicked()
-        {
-            _productPage.ClickContinueShoppingBtn();
-            qty1Product = _productPage.GetProductQty();
-            total1Product = _productPage.GetProductTotal();
-        }
-
-        [Given(@"the properties for second product is checked")]
-        public void GivenThePropertiesForSecondProductIsChecked()
-        {
-            _productPage.ClearPreviousDataFromQuantity();
-            _productPage.InsertWordInInputField("5");
-            _productPage.SelectMediumSize();
-            _productPage.SelectOrangeColor();
-
-            title2Product = _productPage.GetProductTitle();
-            price2Product = _productPage.GetProductPrice();
-            color2Product = _productPage.GetChosedColor();
-            size2Product = _productPage.GetChosedSize();
-        }
-
-        [When(@"the user added first product in cart")]
+        [When(@"the user adds first product in cart")]
         public void WhenTheUserAddedFirstProductInCart()
         {
             _resultSearchPage.ClickOnFirstProduct();
         }
 
-        [Then(@"the user see the same words in the search field and the search header")]
+        [Then(@"the user sees the same words in the search field and the search header")]
         public void ThenTheUserSeeTheSameWordsInSearchFieldAndTheSearchHeader()
         {
             var insertedWord = _resultSearchPage.GetInsertedWord();
             var displayedWordInHeader = _resultSearchPage.GetDisplayedWord();
             Assert.AreEqual(insertedWord, displayedWordInHeader);
+        }
+
+        [Given(@"the first displayed product is opened")]
+        public void GivenTheFirstProductPageIsOpened()
+        {
+            _resultSearchPage.ClickOnMoreOnResultPage();
+        }
+
+        [Given(@"the first product added to card")]
+        public void GivenTheFirstProductAddedToCard()
+        {
+            _productPage.ClearPreviousDataFromQuantity();
+            _productPage.InsertWordInInputField("3");
+            _productPage.SelectLargeSize();
+            _productPage.SelectBlackColor();
+            Task.Delay(4000).Wait();
+            title1Product = _productPage.GetProductTitle();
+            price1Product = _productPage.GetProductPrice();
+            color1Product = _productPage.GetChosedColor();
+            size1Product = _productPage.GetChosedSize();
+            _productPage.ClickAddToCardBtn();
+            Task.Delay(4000).Wait();
+            qty1Product = _productPage.GetProductQty();
+            total1Product = _productPage.GetProductTotal();
+            _productPage.ClickContinueShoppingBtn();
         }
 
         [Given(@"the product properties are set")]

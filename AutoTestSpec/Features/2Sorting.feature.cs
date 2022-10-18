@@ -102,7 +102,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the magnifier is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
- testRunner.When("the user pressed sorting price by downgrade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the user sorts price by downgrade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
  testRunner.Then("the elements are displayed sorted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

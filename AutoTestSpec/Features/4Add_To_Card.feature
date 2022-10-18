@@ -9,5 +9,5 @@ Scenario: Adding product to cart with Quantity = 3, Size = L, Color = white
 		And the magnifier is clicked
 		And the first displayed product is opened
 		And the product properties are set
-	When the Add_to_cart button is clicked
-	Then the user see that products successfully added to the shopping cart in pop-up
+	When the user clicks Add_to_cart btn
+	Then the user sees that products successfully added to the shopping cart in pop-up

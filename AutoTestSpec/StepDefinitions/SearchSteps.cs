@@ -55,12 +55,6 @@ namespace AutoTestSpec.StepDefinitions
             _homePage.ClickSearchBtnOnSearchPage();
         }
 
-        [Given(@"the first displayed product is opened")]
-        public void GivenTheFirstProductPageIsOpened()
-        {
-            _resultSearchPage.ClickOnMoreOnResultPage();
-        }
-
         [When(@"the user clicks on the magnifier")]
         public void WhenTheUserClicksOnTheMagnifier()
         {
@@ -73,8 +67,8 @@ namespace AutoTestSpec.StepDefinitions
             _resultSearchPage.ClickDropdownProductSortHighFirst();
         }
 
-        [When(@"the user pressed sorting price by downgrade")]
-        public void WhenTheUserPressedSortingPriceByDowngrade()
+        [When(@"the user sorts price by downgrade")]
+        public void WhenTheUserSortingPriceByDowngrade()
         {
             _resultSearchPage.ClickDropdownProductSortHighFirst();
         }

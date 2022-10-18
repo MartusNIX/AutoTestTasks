@@ -65,10 +65,5 @@ namespace AutoTestTasks.Pages
                 return false;
             }
         }
-
-/*        public IList<IWebElement> GetProductsList()
-        {
-            return driver.FindElements(By.CssSelector("tbody>tr"));
-        }*/
     }
 }
