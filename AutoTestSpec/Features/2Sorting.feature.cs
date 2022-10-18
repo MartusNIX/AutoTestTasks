@@ -28,7 +28,7 @@ namespace AutoTestSpec.Features
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "Feature2.feature"
+#line 1 "2Sorting.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]

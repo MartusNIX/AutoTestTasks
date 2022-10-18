@@ -28,7 +28,7 @@ namespace AutoTestSpec.Features
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "Feature1.feature"
+#line 1 "1Search_Words_Compearing.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -95,13 +95,19 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
  testRunner.Given("the browser is opened on the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table1.AddRow(new string[] {
+                            "SearchWord",
+                            "Summer"});
 #line 8
-  testRunner.And("the word <Summer> is inserted in the search field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the word is inserted in the search field", ((string)(null)), table1, "And ");
 #line hidden
-#line 9
+#line 11
  testRunner.When("the user clicks on the magnifier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 10
+#line 12
  testRunner.Then("the user see the same words in the search field and the search header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -1,6 +1,9 @@
 using AutoTestSpec.Hooks;
 using AutoTestTasks.Pages;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using AutoTestSpec.Utils;
 
 namespace AutoTestSpec.StepDefinitions
 {
@@ -24,6 +27,14 @@ namespace AutoTestSpec.StepDefinitions
             var expectedTitle = "My Store";
             var actualTitle = _homePage.pageTitle;
             Assert.AreEqual(expectedTitle, actualTitle);
+        }
+
+        [Given(@"the word is inserted in the search field")]
+        public void GivenTheWordIsInsertedInTheSearchField(Table table)
+        {
+            var dictionary = TableExtensions.ToDictionary(table);
+            var test = dictionary["SearchWord"];
+            _homePage.InsertWordInSearchfield(dictionary["SearchWord"]);
         }
 
         [Given(@"the word <Summer> is inserted in the search field")]
