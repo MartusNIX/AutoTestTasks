@@ -14,21 +14,8 @@ namespace AutoTestSpec.StepDefinitions
         private readonly CartPage _cartPage;
         private readonly ProductPage _productPage;
 
-        public string productPriceNew;
-        public string productName;
-        public string title1Product;
-        public string title2Product;
-        public string price1Product;
-        public string price2Product;
-        public string qty1Product;
-        public string qty2Product;
-        public string total1Product;
-        public string total2Product;
-        public string color1Product;
-        public string color2Product;
-        public string size1Product;
-        public string size2Product;
-        public string removeProductID;
+        private string productPriceNew;
+        private string productName;
 
         public ProductSteps(BrowserDrivers browserDrivers)
         {
@@ -40,8 +27,6 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"the user goes to product card page")]
         public void ThenTheUserGoToProductCardPage()
         {
-            productPriceNew = _resultSearchPage.GetNewProductPrice();
-            productName = _resultSearchPage.GetProductName();
             _resultSearchPage.ClickOnLProceedToCheckoutBtn();
         }
 
@@ -70,10 +55,6 @@ namespace AutoTestSpec.StepDefinitions
         [When(@"the user clicks the Proceed_to_checkout btn")]
         public void WhenTheUserClicksTheProceed_To_CheckoutBtn()
         {
-            Thread.Sleep(4000);
-            Task.Delay(4000).Wait();
-            qty2Product = _productPage.GetProductQty();
-            total2Product = _productPage.GetProductTotal();
             _productPage.ClickCheckoutBtn();
         }
 
@@ -85,10 +66,6 @@ namespace AutoTestSpec.StepDefinitions
             _productPage.SelectMediumSize();
             _productPage.SelectOrangeColor();
             Task.Delay(4000).Wait();
-            title2Product = _productPage.GetProductTitle();
-            price2Product = _productPage.GetProductPrice();
-            color2Product = _productPage.GetChosedColor();
-            size2Product = _productPage.GetChosedSize();
             _productPage.ClickAddToCardBtn();
         }
 
@@ -108,7 +85,28 @@ namespace AutoTestSpec.StepDefinitions
                 Assert.Greater(price2, price3);
                 Assert.Greater(price3, price4);
             });
+
+          /*var price1 = GetPrice(_resultSearchPage.elementPriceOld1);
+            var price2 = GetPrice(_resultSearchPage.elementPrice2);
+            var price3 = GetPrice(_resultSearchPage.elementPriceOld3);
+            var price4 = GetPrice(_resultSearchPage.elementPrice4);
+            var list = new List<float>();
+            list.Add(price1);
+            list.Add(price2);
+            list.Add(price3);
+            list.Add(price4);
+
+            Console.WriteLine(list);
+
+            Assert.Multiple(() =>
+            {
+                Assert.Greater(price1, price2);
+                Assert.Greater(price2, price3);
+                Assert.Greater(price3, price4);
+            });*/
         }
+
+
         private float GetPrice(IWebElement element)
         {
             return float.Parse(element.Text.Trim('$'));
@@ -117,6 +115,8 @@ namespace AutoTestSpec.StepDefinitions
         [When(@"the user adds first product in cart")]
         public void WhenTheUserAddedFirstProductInCart()
         {
+            productPriceNew = _resultSearchPage.GetNewProductPrice();
+            productName = _resultSearchPage.GetProductName();
             _resultSearchPage.ClickOnFirstProduct();
         }
 
@@ -142,14 +142,8 @@ namespace AutoTestSpec.StepDefinitions
             _productPage.SelectLargeSize();
             _productPage.SelectBlackColor();
             Task.Delay(4000).Wait();
-            title1Product = _productPage.GetProductTitle();
-            price1Product = _productPage.GetProductPrice();
-            color1Product = _productPage.GetChosedColor();
-            size1Product = _productPage.GetChosedSize();
             _productPage.ClickAddToCardBtn();
             Task.Delay(4000).Wait();
-            qty1Product = _productPage.GetProductQty();
-            total1Product = _productPage.GetProductTotal();
             _productPage.ClickContinueShoppingBtn();
         }
 
@@ -160,11 +154,6 @@ namespace AutoTestSpec.StepDefinitions
             _productPage.InsertWordInInputField("3");
             _productPage.SelectLargeSize();
             _productPage.SelectBlackColor();
-            Thread.Sleep(4000);
-            title1Product = _productPage.GetProductTitle();
-            price1Product = _productPage.GetProductPrice();
-            color1Product = _productPage.GetChosedColor();
-            size1Product = _productPage.GetChosedSize();
         }
 
         [Then(@"products have following")]
