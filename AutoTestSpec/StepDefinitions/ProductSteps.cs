@@ -73,29 +73,16 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"the elements are displayed sorted")]
         public void ThenTheElementsAreDisplayedSorted()
         {
-            var currentPriceList = _resultSearchPage.AllPriceInfo();
-            Console.WriteLine("currentPriceList {0}", string.Join(" | ", currentPriceList));
+            List<string> currentPriceList = _resultSearchPage.GetPriceList();
 
-            /*var price1 = GetPrice(_resultSearchPage.elementPriceOld1);
-            var price2 = GetPrice(_resultSearchPage.elementPrice2);
-            var price3 = GetPrice(_resultSearchPage.elementPriceOld3);
-            var price4 = GetPrice(_resultSearchPage.elementPrice4);
+            List<string> expectedPriceList = new List<string>(currentPriceList);
+            expectedPriceList = expectedPriceList.OrderByDescending(x => x).ToList();
 
-            Console.WriteLine("{0} {1} {2} {3}", price1, price2, price3, price4);
+            Console.WriteLine(" currentPriceList {0}", string.Join(" | ", currentPriceList));
+            Console.WriteLine("expectedPriceList {0}", string.Join(" | ", expectedPriceList));
 
-            Assert.Multiple(() =>
-            {
-                Assert.Greater(price1, price2);
-                Assert.Greater(price2, price3);
-                Assert.Greater(price3, price4);
-            });*/
+            CollectionAssert.AreEqual(expectedPriceList, currentPriceList);
         }
-
-
-        /*private float GetPrice(IWebElement element)
-        {
-            return float.Parse(element.Text.Trim('$'));
-        }*/
 
         [When(@"the user adds first product in cart")]
         public void WhenTheUserAddedFirstProductInCart()

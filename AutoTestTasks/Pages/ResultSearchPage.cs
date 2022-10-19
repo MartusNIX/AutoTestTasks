@@ -40,16 +40,46 @@ namespace AutoTestTasks.Pages
         public string GetProductName() => titleFirstProductOnResultPage.Text;
         public void ClickOnMoreOnResultPage() => btnMoreOnResultPage.Click();
 
-        
-        public Pricezz GetPricezz(int index)
+        public List<string> GetPriceList()
+        {
+            List<string> priceList = new List<string>();
+
+            int productsCount = GetProductListSize();
+            for (var index = 1; index <= productsCount; index++)
+            {
+                Pricezz price = GetOldAndCurrentPrice(index);
+                string currentPrice = price.CurrentPrice;
+                string oldPrice = price.OldPrice;
+                Console.WriteLine("current price {0}", currentPrice);
+                Console.WriteLine("    old price {0}", oldPrice);
+
+                if (oldPrice != "")
+                {
+                    priceList.Add(oldPrice);
+                } else
+                {
+                    priceList.Add(currentPrice);
+                }
+            }
+            return priceList;
+        }
+
+        private int GetProductListSize()
+        {
+            IWebElement gridElement = driver.FindElement(By.CssSelector(".product_list.row.grid"));
+            IList<IWebElement> productList = gridElement.FindElements(By.CssSelector("ul.product_list.grid.row>li>div>div>div.content_price>span.price.product-price"));
+            return productList.Count;
+        }
+
+        public Pricezz GetOldAndCurrentPrice(int index)
         {
             string currentPrice = GetCurrentPrice(index);
             string oldPrice = GetOldPrice(index);
 
             return new Pricezz
             {
-                CurrentPrice = currentPrice,
-                OldPrice = oldPrice
+                CurrentPrice = GetPriceOnlyNumber(currentPrice),
+                OldPrice = GetPriceOnlyNumber(oldPrice)
             };
         }
 
@@ -72,35 +102,9 @@ namespace AutoTestTasks.Pages
             }
         }
 
-        public List<string> AllPriceInfo()
+        private string GetPriceOnlyNumber(string value)
         {
-            List<string> priceList = new List<string>();
-
-            int productsCount = GetProductListSize();
-            for (var index = 1; index <= productsCount; index++)
-            {
-                Pricezz price = GetPricezz(index);
-                string currentPrice = price.CurrentPrice;
-                string oldPrice = price.OldPrice;
-                Console.WriteLine("current price {0}", currentPrice);
-                Console.WriteLine("    old price {0}", oldPrice);
-
-                if (oldPrice != "")
-                {
-                    priceList.Add(oldPrice);
-                } else
-                {
-                    priceList.Add(currentPrice);
-                }
-            }
-            return priceList;
-        }
-
-        private int GetProductListSize()
-        {
-            IWebElement gridElement = driver.FindElement(By.CssSelector(".product_list.row.grid"));
-            IList<IWebElement> productList = gridElement.FindElements(By.CssSelector("ul.product_list.grid.row>li>div>div>div.content_price>span.price.product-price"));
-            return productList.Count;
+            return value.Trim('$');
         }
     }
 }
