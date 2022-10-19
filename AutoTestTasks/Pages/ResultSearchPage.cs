@@ -1,4 +1,8 @@
 ﻿using OpenQA.Selenium;
+using System.Diagnostics;
+using System;
+using AutoTestTasks.Pages;
+using System.Reflection;
 
 namespace AutoTestTasks.Pages
 {
@@ -36,7 +40,67 @@ namespace AutoTestTasks.Pages
         public string GetProductName() => titleFirstProductOnResultPage.Text;
         public void ClickOnMoreOnResultPage() => btnMoreOnResultPage.Click();
 
+        
+        public Pricezz GetPricezz(int index)
+        {
+            string currentPrice = GetCurrentPrice(index);
+            string oldPrice = GetOldPrice(index);
 
+            return new Pricezz
+            {
+                CurrentPrice = currentPrice,
+                OldPrice = oldPrice
+            };
+        }
 
+        private string GetCurrentPrice(int index)
+        {
+            IWebElement price = driver.FindElement(By.CssSelector($"ul.product_list.grid.row>li:nth-child({index})>div>div>div.content_price>span.price.product-price"));
+            return price.Text;
+        }
+
+        private string GetOldPrice(int index)
+        {
+            try
+            {
+                var oldPrice = driver.FindElement(By.CssSelector($"ul.product_list.grid.row>li:nth-child({index})>div>div>div.content_price>span.old-price.product-price"));
+                return oldPrice.Text;
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+
+        public List<string> AllPriceInfo()
+        {
+            List<string> priceList = new List<string>();
+
+            int productsCount = GetProductListSize();
+            for (var index = 1; index <= productsCount; index++)
+            {
+                Pricezz price = GetPricezz(index);
+                string currentPrice = price.CurrentPrice;
+                string oldPrice = price.OldPrice;
+                Console.WriteLine("current price {0}", currentPrice);
+                Console.WriteLine("    old price {0}", oldPrice);
+
+                if (oldPrice != "")
+                {
+                    priceList.Add(oldPrice);
+                } else
+                {
+                    priceList.Add(currentPrice);
+                }
+            }
+            return priceList;
+        }
+
+        private int GetProductListSize()
+        {
+            IWebElement gridElement = driver.FindElement(By.CssSelector(".product_list.row.grid"));
+            IList<IWebElement> productList = gridElement.FindElements(By.CssSelector("ul.product_list.grid.row>li>div>div>div.content_price>span.price.product-price"));
+            return productList.Count;
+        }
     }
 }

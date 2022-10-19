@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using AutoTestSpec.Utils;
 using TechTalk.SpecFlow.Assist;
+using System.Runtime.ConstrainedExecution;
 
 namespace AutoTestSpec.StepDefinitions
 {
@@ -72,7 +73,10 @@ namespace AutoTestSpec.StepDefinitions
         [Then(@"the elements are displayed sorted")]
         public void ThenTheElementsAreDisplayedSorted()
         {
-            var price1 = GetPrice(_resultSearchPage.elementPriceOld1);
+            var currentPriceList = _resultSearchPage.AllPriceInfo();
+            Console.WriteLine("currentPriceList {0}", string.Join(" | ", currentPriceList));
+
+            /*var price1 = GetPrice(_resultSearchPage.elementPriceOld1);
             var price2 = GetPrice(_resultSearchPage.elementPrice2);
             var price3 = GetPrice(_resultSearchPage.elementPriceOld3);
             var price4 = GetPrice(_resultSearchPage.elementPrice4);
@@ -84,33 +88,14 @@ namespace AutoTestSpec.StepDefinitions
                 Assert.Greater(price1, price2);
                 Assert.Greater(price2, price3);
                 Assert.Greater(price3, price4);
-            });
-
-          /*var price1 = GetPrice(_resultSearchPage.elementPriceOld1);
-            var price2 = GetPrice(_resultSearchPage.elementPrice2);
-            var price3 = GetPrice(_resultSearchPage.elementPriceOld3);
-            var price4 = GetPrice(_resultSearchPage.elementPrice4);
-            var list = new List<float>();
-            list.Add(price1);
-            list.Add(price2);
-            list.Add(price3);
-            list.Add(price4);
-
-            Console.WriteLine(list);
-
-            Assert.Multiple(() =>
-            {
-                Assert.Greater(price1, price2);
-                Assert.Greater(price2, price3);
-                Assert.Greater(price3, price4);
             });*/
         }
 
 
-        private float GetPrice(IWebElement element)
+        /*private float GetPrice(IWebElement element)
         {
             return float.Parse(element.Text.Trim('$'));
-        }
+        }*/
 
         [When(@"the user adds first product in cart")]
         public void WhenTheUserAddedFirstProductInCart()
