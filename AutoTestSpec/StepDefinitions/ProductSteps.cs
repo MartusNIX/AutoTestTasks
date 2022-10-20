@@ -1,10 +1,8 @@
 using AutoTestSpec.Hooks;
 using AutoTestTasks.Pages;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using AutoTestSpec.Utils;
 using TechTalk.SpecFlow.Assist;
-using System.Runtime.ConstrainedExecution;
 
 namespace AutoTestSpec.StepDefinitions
 {
@@ -58,15 +56,15 @@ namespace AutoTestSpec.StepDefinitions
         {
             _productPage.ClickCheckoutBtn();
         }
-
+   
         [Given(@"the second product added to card")]
-        public void GivenTheSecondProductAddedToCard()
+        public async Task GivenTheSecondProductAddedToCard()
         {
             _productPage.ClearPreviousDataFromQuantity();
             _productPage.InsertWordInInputField("5");
             _productPage.SelectMediumSize();
             _productPage.SelectOrangeColor();
-            Task.Delay(4000).Wait();
+            await Task.Delay(4000);
             _productPage.ClickAddToCardBtn();
         }
 
@@ -107,15 +105,14 @@ namespace AutoTestSpec.StepDefinitions
         }
 
         [Given(@"the first product added to card")]
-        public void GivenTheFirstProductAddedToCard()
+        public async Task GivenTheFirstProductAddedToCard()
         {
             _productPage.ClearPreviousDataFromQuantity();
             _productPage.InsertWordInInputField("3");
             _productPage.SelectLargeSize();
             _productPage.SelectBlackColor();
-            Task.Delay(4000).Wait();
+            await Task.Delay(4000);
             _productPage.ClickAddToCardBtn();
-            Task.Delay(4000).Wait();
             _productPage.ClickContinueShoppingBtn();
         }
 
