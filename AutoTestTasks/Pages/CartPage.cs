@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
+
 namespace AutoTestTasks.Pages
 {
     public class CartPage
@@ -73,5 +74,59 @@ namespace AutoTestTasks.Pages
                 return false;
             }
         }
+
+        public IList<IWebElement> ProductContainers => driver.FindElements(By.CssSelector(".cart_item"));
+        public Product GetProductInfo(int index)
+        {
+            var productContainer = ProductContainers[index];
+            var product = new Product
+            {
+                Color = GetColor(productContainer.FindElement(By.CssSelector(".cart_description small a")).Text),
+                Size = GetSize(productContainer.FindElement(By.CssSelector(".cart_description small a")).Text),
+                Title = GetTitle(productContainer.FindElement(By.CssSelector(".cart_description p a")).Text),
+                Quantity = GetQuantity(productContainer.FindElement(By.CssSelector(".cart_quantity.text-center input")).GetAttribute("value")),
+                Price = GetPricee(productContainer.FindElement(By.CssSelector(".cart_unit span")).Text),
+                TotalPrice = GetTotalPricee(productContainer.FindElement(By.CssSelector(".cart_total span")).Text)
+            };
+            return product;
+        }
+
+        public string GetColor(string rawText)
+        {
+            var arr = rawText.Split(",");
+            var color = arr[0].Split(":")[1].Trim();
+
+            return color;
+        }
+
+        public string GetSize(string rawText)
+        {
+            var arr = rawText.Split(",");
+            var size = arr[1].Split(":")[1].Trim();
+
+            return size;
+        }
+
+        public string GetTitle(string title)
+        {
+            return title;
+        }
+
+        public int GetQuantity(string quantity)
+        {
+            return int.Parse(quantity);
+        }
+
+        public float GetPricee(string price)
+        {
+            var arr = price.Split(" ");
+            var trimmedPrice = arr[0].Trim('$');
+            return float.Parse(trimmedPrice);
+        }
+        
+        public float GetTotalPricee(string totalPrice)
+        {
+            return float.Parse(totalPrice.Trim('$'));
+        }   
     }
 }

@@ -4,6 +4,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using AutoTestSpec.Utils;
+using TechTalk.SpecFlow.Assist;
 
 namespace AutoTestSpec.StepDefinitions
 {

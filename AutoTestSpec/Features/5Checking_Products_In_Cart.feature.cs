@@ -124,46 +124,28 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("the user clicks the Proceed_to_checkout btn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Parameter",
-                            "Value"});
+                            "Color",
+                            "Size",
+                            "Title",
+                            "Quantity",
+                            "Price",
+                            "TotalPrice"});
                 table2.AddRow(new string[] {
-                            "Color1",
-                            "White"});
-                table2.AddRow(new string[] {
-                            "Size1",
-                            "L"});
-                table2.AddRow(new string[] {
-                            "Title1",
-                            "Blouse"});
-                table2.AddRow(new string[] {
-                            "QTY1",
-                            "3"});
-                table2.AddRow(new string[] {
-                            "TotalPrice1",
+                            "White",
+                            "L",
+                            "Blouse",
+                            "3",
+                            "27.00",
                             "81.00"});
                 table2.AddRow(new string[] {
-                            "Price1",
-                            "27.00"});
-                table2.AddRow(new string[] {
-                            "Color2",
-                            "Orange"});
-                table2.AddRow(new string[] {
-                            "Size2",
-                            "M"});
-                table2.AddRow(new string[] {
-                            "Title2",
-                            "Printed Summer Dress"});
-                table2.AddRow(new string[] {
-                            "QTY2",
-                            "5"});
-                table2.AddRow(new string[] {
-                            "TotalPrice2",
+                            "Orange",
+                            "M",
+                            "Printed Summer Dress",
+                            "5",
+                            "28.98",
                             "144.90"});
-                table2.AddRow(new string[] {
-                            "Price2",
-                            "28.98"});
 #line 17
- testRunner.Then("products have following", ((string)(null)), table2, "Then ");
+ testRunner.Then("products have following result", ((string)(null)), table2, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -14,18 +14,8 @@ Scenario: Checkout 2 product
 		And the first displayed product is opened
 		And the second product added to card
 	When the user clicks the Proceed_to_checkout btn
-	Then products have following
-	| Parameter   | Value                |
-	| Color1      | White                |
-	| Size1       | L                    |
-	| Title1      | Blouse               |
-	| QTY1        | 3                    |
-	| TotalPrice1 | 81.00                |
-	| Price1      | 27.00                |
-	| Color2      | Orange               |
-	| Size2       | M                    |
-	| Title2      | Printed Summer Dress |
-	| QTY2        | 5                    |
-	| TotalPrice2 | 144.90               |
-	| Price2      | 28.98                |
+	Then products have following result
+	|Color  |Size|Title               |Quantity|Price|TotalPrice|
+	|White  |L   |Blouse              |3       |27.00|81.00     |
+	|Orange |M   |Printed Summer Dress|5       |28.98|144.90    | 
 	

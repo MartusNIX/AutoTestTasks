@@ -3,6 +3,7 @@ using AutoTestTasks.Pages;
 using NUnit.Framework;
 using AutoTestSpec.Utils;
 using TechTalk.SpecFlow.Assist;
+using FluentAssertions;
 
 namespace AutoTestSpec.StepDefinitions
 {
@@ -188,6 +189,31 @@ namespace AutoTestSpec.StepDefinitions
         {
             var isSecondProductDisplayed = _cartPage.IsSecondProductDisplayed();
             Console.WriteLine("isSecondProductDisplayed : {0}", isSecondProductDisplayed);
+        }
+
+        [Then(@"products have following result")]
+        public void ThenProductsHaveFollowingResult(Table table)
+        {
+            var expectedProducts = table.CreateSet<Product>().ToList();
+            for (int i = 0; i < expectedProducts.Count; i++)
+            {
+                var actualProduct = _cartPage.GetProductInfo(i);
+
+                actualProduct.Color.Should().Be(expectedProducts[i].Color);
+                actualProduct.Size.Should().Be(expectedProducts[i].Size);
+                actualProduct.Title.Should().Be(expectedProducts[i].Title);
+                actualProduct.Quantity.Should().Be(expectedProducts[i].Quantity);
+                actualProduct.Price.Should().Be(expectedProducts[i].Price);
+                actualProduct.TotalPrice.Should().Be(expectedProducts[i].TotalPrice);
+
+                //Another variant
+                Assert.AreEqual(expectedProducts[i].Color, actualProduct.Color);
+                Assert.AreEqual(expectedProducts[i].Size, actualProduct.Size);
+                Assert.AreEqual(expectedProducts[i].Title, actualProduct.Title);
+                Assert.AreEqual(expectedProducts[i].Quantity, actualProduct.Quantity);
+                Assert.AreEqual(expectedProducts[i].Price, actualProduct.Price);
+                Assert.AreEqual(expectedProducts[i].TotalPrice, actualProduct.TotalPrice);
+            }
         }
     }
 }

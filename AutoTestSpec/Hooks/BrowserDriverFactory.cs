@@ -36,7 +36,6 @@ namespace AutoTestSpec.Hooks
             var edgeOptions = new EdgeOptions();
             var edgeDriver = new EdgeDriver(edgeDriverService, edgeOptions);
             return edgeDriver;
-
         }
 
         private IWebDriver GetFirefoxDriver()
