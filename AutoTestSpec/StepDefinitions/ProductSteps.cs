@@ -207,12 +207,12 @@ namespace AutoTestSpec.StepDefinitions
                 actualProduct.TotalPrice.Should().Be(expectedProducts[i].TotalPrice);
 
                 //Another variant
-                Assert.AreEqual(expectedProducts[i].Color, actualProduct.Color);
+                /*Assert.AreEqual(expectedProducts[i].Color, actualProduct.Color);
                 Assert.AreEqual(expectedProducts[i].Size, actualProduct.Size);
                 Assert.AreEqual(expectedProducts[i].Title, actualProduct.Title);
                 Assert.AreEqual(expectedProducts[i].Quantity, actualProduct.Quantity);
                 Assert.AreEqual(expectedProducts[i].Price, actualProduct.Price);
-                Assert.AreEqual(expectedProducts[i].TotalPrice, actualProduct.TotalPrice);
+                Assert.AreEqual(expectedProducts[i].TotalPrice, actualProduct.TotalPrice);*/
             }
         }
     }
